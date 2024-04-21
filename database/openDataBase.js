@@ -172,7 +172,7 @@ class Database {
     }
 }
 
-module.exports = database;
+module.exports = Database;
 
 // sample for adding a new index
 // const myDatabase = new database('database.db');
