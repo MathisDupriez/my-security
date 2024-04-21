@@ -172,10 +172,10 @@ class Database {
     }
 }
 
-module.exports = Database;
+module.exports = database;
 
 // sample for adding a new index
-// const myDatabase = new Database('Database.db');
+// const myDatabase = new database('database.db');
 // const index = {
 //     Title: 'Article Title',
 //     Content: 'Article Content',
@@ -186,20 +186,20 @@ module.exports = Database;
 
 
 // sample for adding a new image
-// const myDatabase = new Database('Database.db');
+// const myDatabase = new database('database.db');
 // const image = {
 //     Path: 'path/to/image.jpg',
 //     Date: new Date()
 // };
 
 // sample for adding a new section
-// const myDatabase = new Database('Database.db');
+// const myDatabase = new database('database.db');
 // const section = {
 //     Name: 'Section Name'
 // };
 
 // sample for adding a new downloadable
-// const myDatabase = new Database('Database.db');
+// const myDatabase = new database('database.db');
 // const downloadable = {
 //     Path: 'path/to/downloadable.pdf',
 //     SectionID: 1
