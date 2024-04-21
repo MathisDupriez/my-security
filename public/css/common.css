@@ -1,0 +1,123 @@
+/* Custom styles for a dark theme with green accents */
+body {
+    background-color: #222;
+    color: #fff;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #111;
+}
+
+
+
+.navbar-light .navbar-brand, .navbar-light .navbar-nav .nav-link {
+    color: #00ff00; /* Green text for navbar links */
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+    color: #66ff66; /* Light green on hover */
+}
+
+/* Secondary Navbar */
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    background-color: #333;
+    color: #00ff00; /* Green text for active secondary navbar links */
+}
+.nav-link {
+    color: #00ff00; /* Green text for secondary navbar links */
+    margin : 0 5px 0 5px;
+}
+.nav-link:hover {
+    color: #66ff66; /* Light green on hover */
+    background: #333;
+}
+/* Carousel */
+.carousel-inner {
+    background-color: #333;
+}
+.btn-link {
+    color: #00ff00; /* Green text for accordion buttons */
+}
+
+/* Main Content Sections */
+.col-lg-9 {
+    color: #fff;
+}
+
+h2 {
+    color: #00ff00; /* Green headers */
+}
+
+p {
+    color: #ccc;
+}
+.btn-primary {
+    background-color: #00ff00; /* Green accent for download buttons */
+    border-color: #00ff00; /* Green accent for download button borders */
+}
+.btn-primary:hover {
+    background-color: #555555; /* darker green on hover */
+    border-color: #66ff66; /* Light green on hover */
+}
+.list-group-item {
+    background-color: #444;
+    border : 1px solid black;
+}
+
+/* Downloadable Files */
+.accordion {
+    background-color: #333;
+}
+
+.card-header {
+    background-color: #555;
+    color: #00ff00; /* Green text for accordion headers */
+}
+
+.card-body {
+    background-color: #333;!important
+}
+
+/* Footer */
+.bg-dark {
+    background-color: #111;
+}
+
+.text-light {
+    color: #fff;
+}
+
+/* Bootstrap JS and jQuery */
+.navbar-dark  {
+    background-color: #111; /* Green accent for the navbar toggler icon in dark mode */
+}
+.sticky-top{
+    top: 10px;
+}
+.footer {
+    background-color: #111;
+    color: #fff;
+    margin-top: 20px;
+    position: static;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+}
+.sectionTitle {
+    color: #00ff00; /* Green text for section titles */
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+#article {
+    width: 98vw;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+}
+.articleBody {
+    margin: 10px;
+}
