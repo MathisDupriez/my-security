@@ -7,9 +7,9 @@ const port = 54404;
 app.use(express.static('public'));
 app.use(express.static('image'));
 
-const Database = require('./database/openDatabase.js');
+//const Database = require('./database/openDatabase.js');
 
-const databaseManager = new Database('database.db');
+//const databaseManager = new Database('database.db');
 
 // routes for the articles table
 app.get('/articles', async (req, res) => {
