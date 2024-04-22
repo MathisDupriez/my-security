@@ -5,7 +5,7 @@ function addArticle(articleTitle, articleContent, articleImage) {
   const clone = document.importNode(articleTemplate.content, true);
   clone.getElementById('articleTitle').textContent = articleTitle || 'Article Title';
     clone.getElementById('articleContent').textContent = articleContent || 'Article Content';
-    clone.getElementById('articleImage').src = articleImage || 'https://via.placeholder.com/150';
+    clone.getElementById('articleImage').src = articleImage || './image/no-image.png';
     clone.getElementById('articleButton').addEventListener('click', function() {
 
     });
@@ -20,6 +20,12 @@ fetch('/articles')
     });
   });
 addArticle('Article Title', 'Article Content', '');
+addArticle('Article Title', 'Article Content', '');
+addArticle('Article Title', 'Article Content', '');
+addArticle('Article Title', 'Article Content', '');
+addArticle('Article Title', 'Article Content', '');
+addArticle('Article Title', 'Article Content', '');
+addArticle('Article Title', 'Article Content', '');
 
 // post a new index
 const articles = {
@@ -30,4 +36,3 @@ const articles = {
     image: '/image/ubuntu-ufw.png'
     };
 
-addArticle(articles.title, articles.content, articles.image);
