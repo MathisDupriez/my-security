@@ -9,7 +9,7 @@ app.use(express.static('image'));
 
 const Database = require('./database/openDataBase.js');
 
-const databaseManager = new Database('database.db');
+const databaseManager = new Database('./database.db');
 
 // routes for the articles table
 app.get('/articles', async (req, res) => {

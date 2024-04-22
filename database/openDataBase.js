@@ -170,6 +170,10 @@ module.exports = class Database {
             });
         });
     }
+
+    async createImagesTable() {
+
+    }
 }
 
 
