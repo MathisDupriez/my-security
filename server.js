@@ -7,7 +7,7 @@ const port = 54404;
 app.use(express.static('public'));
 app.use(express.static('image'));
 
-const Database = require('./database/openDatabase.js');
+const Database = require('./database/openDataBase.js');
 
 const databaseManager = new Database('database.db');
 

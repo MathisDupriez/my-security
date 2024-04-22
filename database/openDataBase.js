@@ -1,7 +1,7 @@
 const sqlite3 = require('sqlite3').verbose();
 const fs = require('fs');
 
-class Database {
+module.exports = class Database {
     constructor(databaseName) {
         this.databaseName = databaseName;
         this.db = null;
@@ -172,7 +172,6 @@ class Database {
     }
 }
 
-module.exports = Database;
 
 // sample for adding a new index
 // const myDatabase = new database('database.db');
