@@ -3,8 +3,12 @@ body {
     margin-top: 56px;
     background-color: #222;
     color: #fff;
+    padding: 0;
 }
-
+::selection {
+    background-color: #00ff00; /* Green text selection */
+    color: #000;
+}
 /* Navbar */
 .navbar {
     background-color: #111;
@@ -117,10 +121,8 @@ p {
 
 #article {
     width: 98vw;
-    margin-top: 20px;
-    margin-bottom: 20px;
     display: flex;
-    justify-content: left;
+    justify-content: center;
     flex-wrap: wrap;
 }
 
@@ -135,11 +137,11 @@ p {
     align-items: center;
     justify-content: left;
     flex-wrap: nowrap;
+    margin : 20px;
 }
 
 #finderBar {
     width: 40vw;
-    margin: 10px;
 }
 
 .carousel-inner img {
@@ -151,6 +153,7 @@ p {
 #carousel {
     max-height: 60vh; /* Définir une hauteur fixe pour le carrousel */
     overflow: hidden; /* Masquer le contenu dépassant de la hauteur du carrousel */
+    border-bottom: 3px solid black;
 }
 
 
@@ -158,4 +161,18 @@ p {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+}
+#content {
+    padding: 0;
+    margin: 0;
+}
+#downloads {
+    border-top: 3px solid black;
+    width: 100vw;
+    padding: 20px;
+}
+@media(max-width: 650px) {
+    #finderBar {
+        width: 80vw;
+    }
 }
