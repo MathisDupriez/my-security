@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 
+    <!-- Import and setting-->
 
     <head>
         <meta charset="UTF-8">
@@ -11,6 +12,9 @@
         <link rel="stylesheet" href="css/common.css">
         <script defer src="js/index.js"></script>
     </head>
+
+
+
     <!-- Navigation Bar -->
     <nav id="mainNav" class="navbar navbar-expand-lg navbar-dark fixed-top">
         <a class="navbar-brand" href="#">My Security Tech</a>
@@ -43,6 +47,10 @@
             </ul>
         </div>
     </nav>
+
+
+
+    <!-- Main content -->
 
     <body data-spy="scroll" data-target="#navbar" data-offset="50">
         <!-- Carousel -->
@@ -174,16 +182,32 @@
         <p>&copy; 2024 My Security Tech. Tous droits réservés.</p>
     </footer>
 
+    <!-- Template -->
+
+
     <template id="articleTemplate">
         <div class="card articleBody" style="width: 18rem;">
             <img id="articleImage" src="./image/no-image.png" class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 id="articleTitle" class="card-title">Card title</h5>
+                <div id="articleTitleLike">
+                    <div id="articleTitleDiv">
+                        <h5 id="articleTitle" class="card-title">Card title</h5>
+                    </div>
+                    <div id="articleLikeDiv">
+                        <p id="articleLike" class="card-title">Like</p>
+                    </div>
+                </div>
+                <date id="articleDate">Date</date>
                 <p id="articleContent" class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a id="articleButton" href="#" class="btn btn-primary">Go somewhere</a>
+                <div id="readMore">
+                    <a id="articleButton" href="#" class="btn btn-primary">Lire plus</a>
+                </div>
             </div>
         </div>
     </template>
+
+
+
     <!-- Link Bootstrap JS and jQuery -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

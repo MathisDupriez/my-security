@@ -128,8 +128,10 @@ p {
 
 .articleBody {
     margin: 10px;
-    height: 550px;
-    max-height: 350px;
+    max-height: 400px;
+    display: flex;
+    flex-direction: column; /* Assurez-vous que les enfants s'affichent verticalement */
+    height: 100%; /* Assurez-vous que la hauteur de la division parente est respectée */
 }
 
 #finder {
@@ -158,9 +160,9 @@ p {
 
 
 .card-text {
-    overflow: hidden;
-    white-space: nowrap;
+    overflow: scroll;
     text-overflow: ellipsis;
+    max-height: 60px;
 }
 #content {
     padding: 0;
@@ -173,6 +175,45 @@ p {
 }
 #buttonChercher {
     border-radius: 0 0.25rem 0.25rem 0;
+}
+#articleTitleLike {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#articleTitleDiv {
+    display: inline;
+    align-items: center;
+}
+#articleLikeDiv {
+    display: inline;
+    align-items: center;
+}
+#articleDate {
+    display: inline;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    align-items: center;
+}
+#articleLike {
+    display: inline;
+    align-items: center;
+}
+#articleTitle {
+    color: #00ff00; /* Green text for section titles */
+    margin: 0;
+    font-size: 25px;
+}
+#articleContent {
+    color: #ccc;
+    margin-top: 10px ;
+    padding: 0;
+}
+#readMore {
+    display: flex;
+    justify-content: flex-end; /* Aligne les éléments vers la droite */
+    align-items: flex-end; /* Aligne les éléments en bas */
+    flex-grow: 1;
 }
 @media(max-width: 650px) {
     #finderBar {
