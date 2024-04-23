@@ -1,11 +1,13 @@
 const express = require('express');
 const sqlite3 = require('sqlite3');
+const bodyParser = require('body-parser');
 
 const app = express();
 const port = 54404;
 
 app.use(express.static('public'));
 app.use(express.static('image'));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 const Database = require('./database/openDataBase.js');
 
@@ -18,9 +20,28 @@ app.get('/articles', async (req, res) => {
     res.json(articles);
 });
 app.post('/articles', async (req, res) => {
-    const article = req.body;
-    await databaseManager.insertIntoTable('articles', article);
-    res.json({ message: 'Article added successfully.' });
+    try {
+        // Récupération des données du formulaire
+        const { title, content, date, likes, imagePath } = req.body;
+        console.table(req.body);
+        // Initialisation de la base de données
+
+        // Insertion des données dans la base de données
+        await databaseManager.insertIntoTable('Articles', {
+            Title: title,
+            Content: content,
+            Date: date,
+            Likes: likes,
+            ImagePath: imagePath
+        });
+
+        // Réponse de succès
+        res.json({ message: 'Article publier avec succes.', success: true });
+    } catch (error) {
+        // Gestion des erreurs
+        console.error('Une erreur s\'est produite :', error);
+        res.json({ message: 'Une erreur s\'est produite lors de la soumission de l\'article.' });
+    }
 });
 
 // routes for the images table
@@ -59,6 +80,13 @@ app.post('/downloadables', async (req, res) => {
 
 app.get('/article_page' , async (req, res) => {
     res.sendFile(__dirname + '/public/html/Article.html');
+});
+app.get('/post_article' , async (req, res) => {
+    res.sendFile(__dirname + '/public/html/postArticle.html');
+});
+
+app.post('/submit-article', async (req, res) => {
+
 });
 
 
