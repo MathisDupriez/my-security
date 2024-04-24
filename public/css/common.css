@@ -89,6 +89,7 @@ p {
 
 .card-body {
     background-color: #333;!important
+    position: relative; /* Position relative pour le positionnement absolu du bouton */
 }
 
 /* Footer */
@@ -219,10 +220,10 @@ p {
     padding: 0;
 }
 #readMore {
-    display: flex;
-    justify-content: flex-end; /* Aligne les éléments vers la droite */
-    align-items: flex-end; /* Aligne les éléments en bas */
-    flex-grow: 1;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 25px;
 }
 @media(max-width: 650px) {
     #finderBar {

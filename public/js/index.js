@@ -26,7 +26,10 @@ async function addArticle(articleTitle, articleContent,articleDate,articleLikes,
     } else {
         clone.getElementById('articleImage').src = './image/no-image.png'; // Utilisation d'une image par défaut si l'image n'existe pas
     }
-
+    clone.getElementById("articleButton").addEventListener("click", function() {
+        //redirect to article page
+        window.location.href = "/article_page";
+    });
     index.appendChild(clone);
 }
 
@@ -40,7 +43,6 @@ async function fetchArticles() {
             throw new Error('Erreur lors de la récupération des articles : ' + response.status);
         }
         const articles = await response.json();
-        console.log('Articles récupérés avec succès :', articles);
         return articles;
     } catch (error) {
         console.error('Une erreur s\'est produite lors de la récupération des articles :', error);
@@ -51,7 +53,6 @@ async function fetchArticles() {
 // Fonction principale asynchrone pour charger les articles
 async function loadArticles() {
     const articles = await fetchArticles();
-    console.log(articles);
     // Parcours des articles et ajout à la page
     articles.forEach(article => {
         addArticle(article.Title, article.Content, article.Date, article.Likes, article.ImagePath);
@@ -67,22 +68,27 @@ async function loadArticles() {
         const carouselInner = document.querySelector('.carousel-inner');
 
         // Parcourir la liste des image et créer les éléments correspondants
-        images.forEach((image, index) => {
+        for (const image of images) {
+            const index1 = images.indexOf(image);
             const carouselItem = document.createElement('div');
             carouselItem.classList.add('carousel-item');
-            if (index === 0) {
+            if (index1 === 0) {
                 carouselItem.classList.add('active');
             }
 
             const img = document.createElement('img');
-            img.src = '/image/' + image;
-            console.log(img.src);
+            const exists = await imageExists('/image/' + image);
+            if (exists) {
+                img.src = '/image/' + image;
+            } else {
+                img.src= '/image/no-image.png'; // Utilisation d'une image par défaut si l'image n'existe pas
+            }
             img.classList.add('d-block', 'w-100');
-            img.alt = 'Image ' + index;
+            img.alt = 'Image ' + index1;
 
             carouselItem.appendChild(img);
             carouselInner.appendChild(carouselItem);
-        });
+        }
     } catch (error) {
         console.error('Une erreur est survenue : ', error);
     }

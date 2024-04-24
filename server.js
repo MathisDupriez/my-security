@@ -19,16 +19,9 @@ const databaseManager = new Database('./database.db');
 const readdir = promisify(fs.readdir);
 const stat = promisify(fs.stat);
 
-
-// Middleware pour servir les fichiers statiques du dossier public
-app.use(express.static('public'));
-
-// Endpoint pour obtenir la liste des noms de fichiers d'image avec une hauteur de 400 pixels
-
-
+// Endpoint pour obtenir la liste des noms de fichiers d'image avec une hauteur définie
 app.get('/images', async (req, res) => {
     const imagesDir = path.join(__dirname, 'public', 'image');
-    console.log(imagesDir);
     try {
         // Lire le contenu du dossier des image
         const files = fs.readdirSync(imagesDir);
@@ -60,7 +53,6 @@ app.post('/articles', async (req, res) => {
     try {
         // Récupération des données du formulaire
         const { title, content, date, likes, imagePath } = req.body;
-        console.table(req.body);
         // Initialisation de la base de données
 
         // Insertion des données dans la base de données
@@ -79,17 +71,6 @@ app.post('/articles', async (req, res) => {
         console.error('Une erreur s\'est produite :', error);
         res.json({ message: 'Une erreur s\'est produite lors de la soumission de l\'article.' });
     }
-});
-
-// routes for the image table
-app.get('/images', async (req, res) => {
-    const images = await databaseManager.getAllFromTable('images');
-    res.json(images);
-});
-app.post('/images', async (req, res) => {
-    const image = req.body;
-    await databaseManager.insertIntoTable('images', image);
-    res.json({ message: 'Image added successfully.' });
 });
 
 // routes for the sections table
