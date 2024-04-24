@@ -58,6 +58,36 @@ async function loadArticles() {
     });
 }
 
+(async () => {
+    try {
+        // Récupérer les image du serveur Express
+        const response = await fetch('/images');
+        const images = await response.json();
+
+        const carouselInner = document.querySelector('.carousel-inner');
+
+        // Parcourir la liste des image et créer les éléments correspondants
+        images.forEach((image, index) => {
+            const carouselItem = document.createElement('div');
+            carouselItem.classList.add('carousel-item');
+            if (index === 0) {
+                carouselItem.classList.add('active');
+            }
+
+            const img = document.createElement('img');
+            img.src = '/image/' + image;
+            console.log(img.src);
+            img.classList.add('d-block', 'w-100');
+            img.alt = 'Image ' + index;
+
+            carouselItem.appendChild(img);
+            carouselInner.appendChild(carouselItem);
+        });
+    } catch (error) {
+        console.error('Une erreur est survenue : ', error);
+    }
+})();
+
 // Appel de la fonction principale pour charger les articles
 loadArticles();
 

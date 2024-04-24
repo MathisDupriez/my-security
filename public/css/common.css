@@ -131,7 +131,7 @@ p {
     max-height: 400px;
     display: flex;
     flex-direction: column; /* Assurez-vous que les enfants s'affichent verticalement */
-    height: 100%; /* Assurez-vous que la hauteur de la division parente est respectée */
+    height: 400px; /* Assurez-vous que la hauteur de la division parente est respectée */
 }
 
 #finder {
@@ -146,17 +146,26 @@ p {
     width: 40vw;
 }
 
-.carousel-inner img {
-    width: auto; /* Réinitialiser la largeur pour permettre à l'image d'être redimensionnée proportionnellement */
-    height: 100%; /* Hauteur maximale du carrousel */
-    object-fit: contain; /* Afficher l'image entière tout en la centrant dans le conteneur */
+.carousel-item img {
+    /* Assurer que l'image s'ajuste à la taille de son conteneur */
+    width: 100%;
+    /* Utiliser object-fit pour remplir complètement le conteneur avec l'image */
+    object-fit: cover;
 }
 
 #carousel {
-    max-height: 60vh; /* Définir une hauteur fixe pour le carrousel */
-    overflow: hidden; /* Masquer le contenu dépassant de la hauteur du carrousel */
+    /* Définir une hauteur fixe pour le carousel */
+    max-height: 400px;
+    /* Ajouter une marge automatique pour centrer le carousel horizontalement */
+    margin: auto;
+    overflow: hidden;
+    /* Ajouter une bordure en bas pour améliorer l'apparence */
     border-bottom: 3px solid #111;
 }
+
+
+
+
 
 
 .card-text {
