@@ -3,9 +3,7 @@ const sqlite3 = require('sqlite3');
 const bodyParser = require('body-parser');
 const fs = require('fs');
 const path = require('path');
-const { promisify } = require('util');
-const sharp = require('sharp');
-
+const imageSize = require('image-size');
 const app = express();
 const port = 54404;
 
@@ -16,22 +14,19 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const Database = require('./database/openDataBase.js');
 const databaseManager = new Database('./database.db');
 
-const readdir = promisify(fs.readdir);
-const stat = promisify(fs.stat);
-
 // Endpoint pour obtenir la liste des noms de fichiers d'image avec une hauteur définie
 app.get('/images', async (req, res) => {
     const imagesDir = path.join(__dirname, 'public', 'image');
     try {
-        // Lire le contenu du dossier des image
+        // Lire le contenu du dossier des images
         const files = fs.readdirSync(imagesDir);
 
-        // Filtrer les fichiers pour ne garder que les fichiers d'image avec une hauteur de 400 pixels
+        // Filtrer les fichiers pour ne garder que les fichiers d'image avec une hauteur entre 250 et 600 pixels
         const filteredImages = [];
         for (const file of files) {
             const filePath = path.join(imagesDir, file);
-            const metadata = await sharp(filePath).metadata();
-            if (metadata.height >= 250 && metadata.height <= 600) {
+            const dimensions = imageSize(fs.readFileSync(filePath));
+            if (dimensions.height >= 250 && dimensions.height <= 600) {
                 filteredImages.push(file);
             }
         }
@@ -39,11 +34,10 @@ app.get('/images', async (req, res) => {
         // Renvoyer la liste des noms de fichiers d'image filtrées
         res.json(filteredImages);
     } catch (err) {
-        console.error('Erreur lors de la lecture du dossier des image :', err);
-        res.status(500).send('Erreur lors de la lecture du dossier des image');
+        console.error('Erreur lors de la lecture du dossier des images :', err);
+        res.status(500).send('Erreur lors de la lecture du dossier des images');
     }
 });
-
 // routes for the articles table
 app.get('/articles', async (req, res) => {
     const articles = await databaseManager.getAllFromTable('articles');
