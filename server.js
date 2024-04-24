@@ -4,6 +4,8 @@ const bodyParser = require('body-parser');
 const fs = require('fs');
 const path = require('path');
 const imageSize = require('image-size');
+
+
 const app = express();
 const port = 54404;
 
@@ -93,13 +95,7 @@ app.post('/downloadables', async (req, res) => {
 app.get('/article_page' , async (req, res) => {
     res.sendFile(__dirname + '/public/html/Article.html');
 });
-app.get('/post_article' , async (req, res) => {
-    res.sendFile(__dirname + '/public/html/postArticle.html');
-});
 
-app.post('/submit-article', async (req, res) => {
-
-});
 
 
 // start the server
