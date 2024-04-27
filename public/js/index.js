@@ -55,7 +55,7 @@ async function loadArticles() {
     const articles = await fetchArticles();
     // Parcours des articles et ajout à la page
     articles.forEach(article => {
-        addArticle(article.Title, article.Content, article.Date, article.Likes, article.ImagePath);
+        addArticle(article.Title, article.Description, article.Date, article.Likes, article.ImagePath);
     });
 }
 

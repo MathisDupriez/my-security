@@ -101,7 +101,7 @@ body {
     flex-direction: column;
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
     border-radius: 10px;
-    background-color: #111111;
+    background-color: #1A1A1A;
     padding: 40px;
     width: 100%;
 }
@@ -110,8 +110,8 @@ body {
 }
 #articleContent {
     padding: 50px;
-    background-color: #111111;
     border-radius: 10px;
+    background-color: #1A1A1A;
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
     margin: 50px;
 }

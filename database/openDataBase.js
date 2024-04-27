@@ -48,8 +48,6 @@ module.exports = class Database {
         console.log('Creating tables...');
         await this.createArticlesTable();
         console.log('Articles table created.');
-        await this.createImagesTable();
-        console.log('Images table created.');
         await this.createSectionTable();
         console.log('Section table created.');
         await this.createDownloadableTable();
@@ -62,6 +60,7 @@ module.exports = class Database {
                 ID INTEGER PRIMARY KEY AUTOINCREMENT,
                 Title TEXT,
                 Content TEXT,
+                Description TEXT,
                 Date TIMESTAMP,
                 Likes INTEGER,
                 ImagePath TEXT
