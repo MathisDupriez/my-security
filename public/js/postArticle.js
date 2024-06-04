@@ -78,14 +78,16 @@ submitBtn.addEventListener('click', async () => {
         const responseData = await response.json();
         if (responseData.success) {
             alert('Article soumis avec succès !');
-            //document.getElementById('title').value = ''; // Réinitialisation des champs
-            //document.getElementById('content').value = '';document.getElementById('date').value = '';
-            //document.getElementById('likes').value = '';
-            //document.getElementById('image').value = ''; // Réinitialisation du champ d'image
-            //document.getElementById('imagePreview').src = '/image/no-image.png'; // Réinitialisation de l'aperçu
-            //imagePathName.value = ''; // Réinitialisation du champ de nom de chemin d'image
-            //dropDownText.textContent = 'chemin de l\'image'; // Réinitialisation du texte de la liste déroulante
-            //choseCheck.checked = true;
+            document.getElementById('title').value = ''; // Réinitialisation des champs
+            document.getElementById('content').value = '';document.getElementById('date').value = '';
+            document.getElementById('likes').value = '';
+            document.getElementById('image').value = ''; // Réinitialisation du champ d'image
+            document.getElementById('imagePreview').src = '/image/no-image.png'; // Réinitialisation de l'aperçu
+            imagePathName.value = ''; // Réinitialisation du champ de nom de chemin d'image
+            dropDownText.textContent = 'chemin de l\'image'; // Réinitialisation du texte de la liste déroulante
+            choseCheck.checked = false;
+            importCheck.checked = true;
+            importCheck.change();
         } else {
             alert('Erreur lors de la soumission de l\'article : ' + responseData.message);
         }

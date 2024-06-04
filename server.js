@@ -3,8 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const imageSize = require('image-size');
 const multer = require('multer');
-const bodyParser = require("body-parser");
-
+const bcrypt = require('bcrypt');
 
 const app = express();
 const port = 54404;
@@ -45,7 +44,7 @@ function multerUpload(fieldName, desiredFilename) {
 const upload = multerUpload('image', 'no-named-image-' + Date.now());
 
 
-// Route pour recevoir et traiter les données du formulaire et télécharger l'image
+// Route pour poster un nouvel article soit en postant une nouvelle image soit en choisissant une image existante
 app.post('/articles',upload, async (req, res) => {
     try {
         var { title, content,description, date, likes,imagePath } = req.body;
@@ -67,38 +66,72 @@ app.post('/articles',upload, async (req, res) => {
     }
 });
 
-
-
-
-
-
-
+// Route pour obtenir la liste des articles et les afficher sur la page d'accueil
 app.get('/articles', async (req, res) => {
     res.json(await databaseManager.getAllFromTable('Articles'));
 });
-// Routes for other database tables
-app.get('/sections', async (req, res) => {
-    res.json(await databaseManager.getAllFromTable('sections'));
-});
 
-app.post('/sections', async (req, res) => {
-    await databaseManager.insertIntoTable('sections', req.body);
-    res.json({ message: 'Section added successfully.' });
-});
-
-app.get('/downloadables', async (req, res) => {
-    res.json(await databaseManager.getAllFromTable('downloadables'));
-});
-
-app.post('/downloadables', async (req, res) => {
-    await databaseManager.insertIntoTable('downloadables', req.body);
-    res.json({ message: 'Downloadable added successfully.' });
-});
-
-app.get('/article_page', (req, res) => {
+// Route pour la page d'affichage d'un article en précisant l'url
+app.get('/articles/:articleId', async (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'html', 'Article.html'));
 });
-// Endpoint pour obtenir la liste des noms de fichiers d'image avec une hauteur définie
+
+// Route pour obtenir les données d'un article spécifique
+app.get('/articles/:articleId/data', async (req, res) => {
+    databaseManager.getByIdFromTable('Articles', req.params.articleId).then(article => {
+        if (article) {
+            console.log(article);
+            res.json(article);
+        } else {
+            res.status(404).json({ message: 'Article non trouvé.' });
+        }
+    });
+});
+
+app.post('/like', async (req, res) => {
+    const { id, userId } = req.body;
+    const article = await databaseManager.getByIdFromTable('Articles', id);
+    if (article) {
+        await databaseManager.incrementColumnById('Articles', id, 'Likes');
+        await databaseManager
+        res.json({ message: 'Like ajouté avec succès.', success: true });
+    }
+});
+
+app.post('/newUser', async (req, res) => {
+    const { name, email, password } = req.body;
+    //hash password
+    const hashedPassword = await hashPassword(password);
+
+    await databaseManager.insertIntoTable('Users', {
+        name,
+        email,
+        hashedPassword
+    });
+    res.json({ message: 'Utilisateur ajouté avec succès.', success: true });
+});
+
+app.post('/login', async (req, res) => {
+    const { email, password } = req.body;
+    const hashedPassword = await hashPassword(password);
+    const user = await databaseManager.getByColumn('Users', 'email', email);
+    if (user && user.password === hashedPassword) {
+        res.json({ message: 'Connexion réussie.', success: true });
+    } else {
+        res.json({ message: 'Email ou mot de passe incorrect.', success: false });
+    }
+});
+
+
+
+
+
+
+
+
+
+
+// Route pour obtenir la liste des images qui ont une hauteur entre 250 et 600 pixels
 app.get('/images', async (req, res) => {
     const imagesDir = path.join(__dirname, 'public', 'image');
     try {
@@ -114,7 +147,7 @@ app.get('/images', async (req, res) => {
         res.status(500).send('Erreur lors de la lecture du dossier des images');
     }
 });
-//route pour avoir le path de toute les image dans le dossier image
+// Route pour avoir le path de toute les image dans le dossier image
 app.get('/imagesPath', async (req, res) => {
     const imagesDir = path.join(__dirname, 'public', 'image');
     try {
@@ -129,7 +162,21 @@ app.get('/imagesPath', async (req, res) => {
     }
 });
 
+
+
 // Start the server
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
+
+
+async function hashPassword(password) {
+    const saltRounds = 10; // Plus ce nombre est élevé, plus le hash est sécurisé et long à calculer
+    try {
+        const hash = await bcrypt.hash(password, saltRounds);
+        return hash;
+    } catch (error) {
+        console.error('Hashing error:', error);
+        throw error; // Propager l'erreur pour une gestion ultérieure si nécessaire
+    }
+}
