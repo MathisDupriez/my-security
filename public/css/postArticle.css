@@ -1,4 +1,113 @@
+#mainDiv {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    margin: 90px;
+    background-color: #1A1A1A;
+    border-radius: 20px;
+}
 #titleContent {
-    margin-top: 76px;
     margin-bottom: 20px;
+    border-radius: 10px;
+    padding: 10px;
+}
+#formDiv {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 100%;
+}
+#imageImport {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+}
+#imageAndPreview {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 0 30px 30px 30px;
+}
+#importImage {
+    width: 50%;
+    margin: 5px;
+}
+
+#choseImage {
+    width: 50%;
+    margin: 5px;
+}
+#dropDownImagePath {
+    width: 100%;
+    background-color: white;
+    margin: 5px;
+}
+#dropDownText {
+    max-width: 210px;
+    background-color: white;
+    margin: 5px;
+    color: black;
+    text-overflow: ellipsis;
+}
+#imageAndPreview li {
+    list-style-type: none;
+    margin: 3px;
+    padding: 6px;
+    border-radius: 5px;
+    background-color: white;
+    color: white;
+}
+#imageAndPreview li:hover {
+    cursor: pointer;
+    background-color: white;
+    color: black;
+}
+
+#imagePreview {
+    max-height: 400px;
+    width: auto;
+    border-radius: 10px;
+    margin: 0;
+    padding: 0;
+}
+#inputBoard {
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+    margin: 0 30px 30px 30px;
+    width: 100%;
+}
+#checkBoxImage {
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+    margin: 20px 0 20px 0;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #222;
+    width: 100%;
+}
+#inputCheckDiv {
+    display: flex;
+    justify-content: left;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    margin: 5px;
+}
+.checkDiv {
+    display: flex;
+    justify-content: left;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    margin: 5px;
+}
+#content {
+    min-height: 130px;
 }

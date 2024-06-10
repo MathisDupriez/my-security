@@ -1,49 +1,137 @@
-// Sélection du formulaire dans le DOM
-const form = document.querySelector('#articleForm');
+const importCheck = document.getElementById('importTheImage');
+const choseCheck = document.getElementById('getExistingImage');
+const imageList = document.getElementById('dropDownImageDiv');
+const dropDownText = document.getElementById('dropDownText');
+const imagePathName = document.getElementById('imagePathName');
+const labelForImagePathName = document.getElementById('labelForImagePathName');
+const submitBtn = document.getElementById('submitBtn');
+const imagePreview = document.getElementById('imagePreview');
 
-// Écoute de l'événement de soumission du formulaire
-form.addEventListener('submit', async (event) => {
-    // Empêcher le comportement par défaut de soumission du formulaire
-    event.preventDefault();
 
-    // Récupération des valeurs des champs du formulaire
-    const title = document.querySelector('#title').value;
-    const content = document.querySelector('#content').value;
-    const date = new Date(); // Vous pouvez ajuster la façon dont vous obtenez la date
-    const likes = 0; // Par défaut, aucun "like" lors de la création
-    const imagePath = document.querySelector('#imagePath').value;
+imagePreview.addEventListener('change', previewImage);
 
-    // Création d'un objet représentant les données du formulaire
-    const formData = {
-        title,
-        content,
-        date,
-        likes,
-        imagePath
-    };
+importCheck.addEventListener('change', handleChangeImportCheck);
 
+choseCheck.addEventListener('change', handleChangeChoseCheck);
+
+
+function handleChangeImportCheck() {
+    if (this.checked) {
+        choseCheck.checked = false;
+        imagePathName.style.display = 'block';
+        labelForImagePathName.style.display = 'block';
+        labelForImagePathName.textContent = 'Nom du chemin de l\'image :';
+    }else {
+        choseCheck.checked = true;
+        imagePathName.style.display = 'none';
+        labelForImagePathName.style.display = 'none';
+    }
+}
+function handleChangeChoseCheck() {
+    if (this.checked) {
+        importCheck.checked = false;
+        imagePathName.style.display = 'none';
+        labelForImagePathName.style.display = 'none';
+    }else {
+        importCheck.checked = true;
+        imagePathName.style.display = 'block';
+        labelForImagePathName.style.display = 'block';
+        labelForImagePathName.textContent = 'Nom du chemin de l\'image :';
+    }
+}
+
+
+// Gestion de la soumission des données
+submitBtn.addEventListener('click', async () => {
+    if(document.querySelector('#title').value === '' || document.querySelector('#content').value === '' || document.querySelector('#date').value === '' || document.querySelector('#likes').value === '') {
+        alert('Veuillez remplir tous les champs.');
+        return;
+    }
+    if(importCheck.checked && imagePathName.value === '') {
+        alert('Veuillez entrer le nom du chemin de l\'image.');
+        return;
+    }
+    if(choseCheck.checked && dropDownText.textContent === 'chemin de l\'image') {
+        alert('Veuillez choisir une image.');
+    }
+    const formData = new FormData();
+    formData.append('title', document.querySelector('#title').value);
+    formData.append('content', document.querySelector('#content').value);
+    formData.append('description', document.querySelector('#description').value);
+    formData.append('date', document.querySelector('#date').value);
+    formData.append('likes', document.querySelector('#likes').value);
+    if(importCheck.checked) {
+        formData.append('name', imagePathName.value);
+        formData.append('image', document.querySelector('#image').files[0]);
+    }
+    if(choseCheck.checked) {
+        formData.append('imagePath', dropDownText.textContent);
+    }
+
+    console.log('formData', formData);
     try {
-        // Envoi des données du formulaire au serveur
         const response = await fetch('/articles', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(formData) // Conversion des données en format JSON
+            contentType: 'multipart/form-data',
+            body: formData  // Pas besoin de définir le Content-Type ici, car FormData le fait automatiquement
         });
-
-        // Vérification de la réponse du serveur
-        if (response.success) {
-            // Affichage d'un message de succès si la soumission est réussie
+        const responseData = await response.json();
+        if (responseData.success) {
             alert('Article soumis avec succès !');
-            // Vous pouvez également rediriger l'utilisateur vers une autre page ou effectuer d'autres actions
+            document.getElementById('title').value = ''; // Réinitialisation des champs
+            document.getElementById('content').value = '';document.getElementById('date').value = '';
+            document.getElementById('likes').value = '';
+            document.getElementById('image').value = ''; // Réinitialisation du champ d'image
+            document.getElementById('imagePreview').src = '/image/no-image.png'; // Réinitialisation de l'aperçu
+            imagePathName.value = ''; // Réinitialisation du champ de nom de chemin d'image
+            dropDownText.textContent = 'chemin de l\'image'; // Réinitialisation du texte de la liste déroulante
+            choseCheck.checked = false;
+            importCheck.checked = true;
+            importCheck.change();
         } else {
-            // Affichage d'un message d'erreur si la soumission a échoué
-            alert('Erreur lors de la soumission de l\'article.');
+            alert('Erreur lors de la soumission de l\'article : ' + responseData.message);
         }
     } catch (error) {
-        // Gestion des erreurs en cas de problème avec la requête
         console.error('Une erreur s\'est produite :', error);
         alert('Une erreur s\'est produite lors de la soumission de l\'article.');
     }
 });
+async function fetchImages() {
+    try {
+        // Récupération des données d'image depuis le serveur
+        const response = await fetch('/imagesPath');
+        const images = await response.json();
+        for (const image of images) {
+            const option = document.createElement('option');
+            option.value = image;
+            option.textContent = image;
+            option.addEventListener('click', function() {
+                document.getElementById('imagePreview').src = image;
+                dropDownText.textContent = image;
+                console.log('dropDownText.textContent', dropDownText.textContent);
+            });
+            imageList.appendChild(option);
+        }
+    } catch (error) {
+        console.error('Failed to fetch images:', error);
+        // Vous pouvez également ajouter un message ou une action d'erreur pour l'utilisateur ici
+    }
+}
+
+// Fonction pour afficher l'aperçu de l'image chargée
+function previewImage() {
+    const file = document.querySelector('#image').files[0];
+    const reader = new FileReader();
+
+    reader.onload = function(e) {
+        document.getElementById('imagePreview').src = e.target.result;
+        document.getElementById('imagePreview').style.display = 'block';
+    };
+    if (file) {
+        reader.readAsDataURL(file);
+    }
+}
+fetchImages();
+choseCheck.checked = false;
+importCheck.checked = true;
+importCheck.change();

@@ -48,12 +48,14 @@ module.exports = class Database {
         console.log('Creating tables...');
         await this.createArticlesTable();
         console.log('Articles table created.');
-        await this.createImagesTable();
-        console.log('Images table created.');
         await this.createSectionTable();
         console.log('Section table created.');
         await this.createDownloadableTable();
         console.log('Downloadable table created.');
+        await this.createUserLikesTable();
+        console.log('UserLikes table created.');
+        await this.createUsersTable();
+        console.log('Users table created.');
     }
 
     async createArticlesTable() {
@@ -62,6 +64,7 @@ module.exports = class Database {
                 ID INTEGER PRIMARY KEY AUTOINCREMENT,
                 Title TEXT,
                 Content TEXT,
+                Description TEXT,
                 Date TIMESTAMP,
                 Likes INTEGER,
                 ImagePath TEXT
@@ -85,6 +88,47 @@ module.exports = class Database {
                     console.error(`Error creating Section table: ${err.message}`);
                     reject(err);
                 } else {
+                    resolve();
+                }
+            });
+        });
+    }
+    async createUserLikesTable() {
+        return new Promise((resolve, reject) => {
+            this.db.run(`CREATE TABLE IF NOT EXISTS UserLikes (
+            LikeID INTEGER PRIMARY KEY AUTOINCREMENT,
+            UserID INTEGER NOT NULL,
+            ArticleID INTEGER NOT NULL,
+            LikedOn DATETIME DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY(UserID) REFERENCES Users(UserID),
+            FOREIGN KEY(ArticleID) REFERENCES Articles(ArticleID)
+            UNIQUE(UserID, ArticleID) ON CONFLICT IGNORE
+        )`, (err) => {
+                if (err) {
+                    console.error(`Error creating UserLikes table: ${err.message}`);
+                    reject(err);
+                } else {
+                    console.log("UserLikes table created successfully.");
+                    resolve();
+                }
+            });
+        });
+    }
+    async createUsersTable() {
+        return new Promise((resolve, reject) => {
+            this.db.run(`CREATE TABLE IF NOT EXISTS Users (
+            UserID INTEGER PRIMARY KEY AUTOINCREMENT,
+            Username TEXT NOT NULL UNIQUE,
+            Email TEXT NOT NULL UNIQUE,
+            PasswordHash TEXT NOT NULL,
+            Token TEXT,
+            CreatedAt DATETIME DEFAULT CURRENT_TIMESTAMP
+        )`, (err) => {
+                if (err) {
+                    console.error(`Error creating Users table: ${err.message}`);
+                    reject(err);
+                } else {
+                    console.log("Users table created successfully.");
                     resolve();
                 }
             });
@@ -156,6 +200,75 @@ module.exports = class Database {
             });
         });
     }
+    async getByIdFromTable(tableName, id) {
+        // Utilisation de placeholders pour éviter les injections SQL
+        const query = `SELECT * FROM ${tableName} WHERE id = ?`;
+
+        return new Promise((resolve, reject) => {
+            this.db.get(query, [id], (err, row) => {
+                if (err) {
+                    console.error(`Error retrieving data from ${tableName} with ID ${id}: ${err.message}`);
+                    reject(err);
+                } else if (row) {
+                    resolve(row);
+                } else {
+                    resolve(null); // Retourne null si aucun enregistrement n'est trouvé
+                }
+            });
+        });
+    }
+    async updateColumnById(tableName, id, columnName, newValue) {
+        // Préparation de la requête pour mettre à jour la colonne spécifique
+        const updateQuery = `UPDATE ${tableName} SET ${columnName} = ? WHERE id = ?`;
+
+        // Exécution de la mise à jour
+        return new Promise((resolve, reject) => {
+            this.db.run(updateQuery, [newValue, id], (err) => {
+                if (err) {
+                    console.error(`Error updating ${columnName} in ${tableName} with ID ${id}: ${err.message}`);
+                    reject(err);
+                } else {
+                    console.log(`Column ${columnName} updated successfully in ${tableName} with ID ${id}.`);
+                    resolve(`Column ${columnName} updated successfully.`);
+                }
+            });
+        });
+    }
+    async deleteById(tableName, id) {
+        // Préparation de la requête pour supprimer l'enregistrement spécifique
+        const deleteQuery = `DELETE FROM ${tableName} WHERE id = ?`;
+
+        // Exécution de la suppression
+        return new Promise((resolve, reject) => {
+            this.db.run(deleteQuery, [id], (err) => {
+                if (err) {
+                    console.error(`Error deleting record from ${tableName} with ID ${id}: ${err.message}`);
+                    reject(err);
+                } else {
+                    console.log(`Record deleted successfully from ${tableName} with ID ${id}.`);
+                    resolve(`Record deleted successfully.`);
+                }
+            });
+        });
+    }
+    async incrementColumnById(tableName, id, columnName) {
+        // Préparation de la requête pour incrémenter la colonne spécifique
+        const incrementQuery = `UPDATE ${tableName} SET ${columnName} = ${columnName} + 1 WHERE id = ?`;
+
+        // Exécution de la mise à jour
+        return new Promise((resolve, reject) => {
+            this.db.run(incrementQuery, [id], function(err) {
+                if (err) {
+                    console.error(`Error incrementing ${columnName} in ${tableName} with ID ${id}: ${err.message}`);
+                    reject(err);
+                } else {
+                    console.log(`Column ${columnName} incremented successfully in ${tableName} with ID ${id}.`);
+                    resolve(`Column ${columnName} incremented by 1 successfully. Rows affected: ${this.changes}`);
+                }
+            });
+        });
+    }
+
     async getLatestFromTable(tableName) {
         const query = `SELECT * FROM ${tableName} ORDER BY ID DESC LIMIT 10`;
 
@@ -170,40 +283,4 @@ module.exports = class Database {
             });
         });
     }
-
-    async createImagesTable() {
-
-    }
 }
-
-
-// sample for adding a new index
-// const myDatabase = new database('database.db');
-// const index = {
-//     Title: 'Article Title',
-//     Content: 'Article Content',
-//     Date: new Date(),
-//     Likes: 0,
-//     ImageId: 1
-// };
-
-
-// sample for adding a new image
-// const myDatabase = new database('database.db');
-// const image = {
-//     Path: 'path/to/image.jpg',
-//     Date: new Date()
-// };
-
-// sample for adding a new section
-// const myDatabase = new database('database.db');
-// const section = {
-//     Name: 'Section Name'
-// };
-
-// sample for adding a new downloadable
-// const myDatabase = new database('database.db');
-// const downloadable = {
-//     Path: 'path/to/downloadable.pdf',
-//     SectionID: 1
-// };

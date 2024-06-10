@@ -76,6 +76,22 @@ body {
     background-color: #222222;
     border-radius: 0 10px 10px 0;
     margin: 0;
+    height: 230px;
+}
+#descriptionDiv {
+    background-color: #222222;
+    border-radius: 0 10px 10px 0;
+    height: 100px;
+    overflow-y: auto;
+    margin : 5px 0 12px 0;
+}
+#dateLikeDiv {
+    display: flex;
+    justify-content: space-between;
+    background-color: #222222;
+    border-radius: 0 10px 10px 0;
+    margin: 0;
+    height: 50px;
 }
 /* Style de la division de l'image */
 #imageDiv {
@@ -84,12 +100,12 @@ body {
     justify-content: center;
     text-align: center;
     padding: 0;
+
 }
 /* Style de l'image */
 #image {
-    max-height: 400px; /* Hauteur maximale pour l'image */
-    min-height: 200px;
-    width: auto; /* Largeur automatique pour conserver les proportions */
+    height: 230px;
+    width: auto;
     border-radius: 10px 0 0 10px;
     margin: 0;
     padding: 0;
@@ -101,7 +117,7 @@ body {
     flex-direction: column;
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
     border-radius: 10px;
-    background-color: #111111;
+    background-color: #1A1A1A;
     padding: 40px;
     width: 100%;
 }
@@ -110,8 +126,8 @@ body {
 }
 #articleContent {
     padding: 50px;
-    background-color: #111111;
     border-radius: 10px;
+    background-color: #1A1A1A;
     box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
     margin: 50px;
 }

@@ -19,18 +19,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
     <link rel="stylesheet" href="/css/CodeBlockTheme.css">
 
-    <!-- Syntax highlighting scripts with autoloader -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/plugins/autoloader/prism-autoloader.min.js"></script>
-
     <!-- Custom CSS for the article -->
     <link rel="stylesheet" href="/css/article.css">
 
     <!-- JavaScript for article -->
+    <script defer src="/js/authVerif.js"></script>
     <script defer src="/js/article.js"></script>
+
   </head>
-  <!-- Navigation bar -->
-  <nav id="mainNav" class="navbar navbar-expand-lg navbar-dark fixed-top ">
+  <!-- Navigation Bar -->
+  <nav id="mainNav" class="navbar navbar-expand-lg navbar-dark fixed-top">
     <a class="navbar-brand" href="#">My Security Tech</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -38,7 +36,6 @@
     <!-- Main Navbar -->
     <div class="collapse navbar-collapse" id="navbar">
       <ul class="navbar-nav mr-auto">
-        <!-- Dropdown menu for sites -->
         <li class="nav-item dropdown">
           <a class="nav-link navBarLink dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Sites
@@ -50,21 +47,33 @@
             <a class="dropdown-item" href="html/postArticle.html">Poster un article</a>
           </div>
         </li>
-        <!-- Home link -->
         <li class="nav-item active">
           <a class="nav-link navBarLink" href="https://my-security.tech">Accueil <span class="sr-only">(current)</span></a>
         </li>
-        <!-- Services link -->
-        <li class="nav-item">
+        <li class="nav-item active">
           <a class="nav-link navBarLink" href="#services">Services</a>
         </li>
-        <!-- Contact link -->
-        <li class="nav-item">
+        <li class="nav-item active">
           <a class="nav-link navBarLink" href="#contact">Contact</a>
+        </li>
+      </ul>
+      <!-- User Profile Dropdown -->
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Username
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+            <a class="dropdown-item" href="#">Profile</a>
+            <a class="dropdown-item" href="#">Settings</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Logout</a>
+          </div>
         </li>
       </ul>
     </div>
   </nav>
+
 
 
   <body>
@@ -77,10 +86,14 @@
           <img id="image" src="/image/git.png" alt="Image de l'index">
         </div>
         <div id="infoDiv">
-          <p id="date">Date de publication</p>
           <p id="author">Auteur</p>
-          <p id="like">like</p>
-          <p id="description">Description</p>
+          <div id="descriptionDiv">
+            <p id="description">Description</p>
+          </div>
+          <div id="dateLikeDiv">
+            <p id="date">Date de publication</p>
+            <p id="like">like</p>
+          </div>
         </div>
       </div>
     </div>

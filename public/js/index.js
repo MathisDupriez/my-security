@@ -12,7 +12,7 @@ async function imageExists(url) {
 }
 
 // Fonction pour ajouter un nouvel article à la page
-async function addArticle(articleTitle, articleContent,articleDate,articleLikes,articleImage) {
+async function addArticle(articleTitle, articleContent,articleDate,articleLikes,articleImage,articleId) {
     const clone = document.importNode(articleTemplate.content, true);
     clone.getElementById('articleTitle').textContent = articleTitle || 'Article Title';
     clone.getElementById('articleContent').textContent = articleContent || 'Article Content';
@@ -20,7 +20,7 @@ async function addArticle(articleTitle, articleContent,articleDate,articleLikes,
     clone.getElementById('articleDate').textContent = articleDate || 'Date inconnue';
     // Vérifier si l'image existe
     const exists = await imageExists(articleImage);
-
+    console.log(articleId);
     if (exists) {
         clone.getElementById('articleImage').src = articleImage;
     } else {
@@ -28,7 +28,8 @@ async function addArticle(articleTitle, articleContent,articleDate,articleLikes,
     }
     clone.getElementById("articleButton").addEventListener("click", function() {
         //redirect to article page
-        window.location.href = "/article_page";
+        const id = articleId || '1';
+        window.location.href = `/articles/${id}`;
     });
     index.appendChild(clone);
 }
@@ -55,7 +56,7 @@ async function loadArticles() {
     const articles = await fetchArticles();
     // Parcours des articles et ajout à la page
     articles.forEach(article => {
-        addArticle(article.Title, article.Content, article.Date, article.Likes, article.ImagePath);
+        addArticle(article.Title, article.Description, article.Date, article.Likes, article.ImagePath, article.ID);
     });
 }
 
