@@ -73,7 +73,7 @@ app.get('/articles', async (req, res) => {
 
 // Route pour la page d'affichage d'un article en précisant l'url
 app.get('/articles/:articleId', async (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'content', 'Article.content'));
+    res.sendFile(path.join(__dirname, 'public', 'content', 'Article.html'));
 });
 
 // Route pour obtenir les données d'un article spécifique
