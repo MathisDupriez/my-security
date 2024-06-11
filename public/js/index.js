@@ -16,7 +16,6 @@ async function addArticle(articleTitle, articleContent,articleDate,articleLikes,
     const clone = document.importNode(articleTemplate.content, true);
     clone.getElementById('articleTitle').textContent = articleTitle || 'Article Title';
     clone.getElementById('articleContent').textContent = articleContent || 'Article Content';
-    clone.getElementById('articleLike').textContent = articleLikes + " 👍" || 'Erreur';
     clone.getElementById('articleDate').textContent = articleDate || 'Date inconnue';
     // Vérifier si l'image existe
     const exists = await imageExists(articleImage);

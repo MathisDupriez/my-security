@@ -6,23 +6,23 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>My Security Tech - Accueil</title>
+        <title>Admin sys - Accueil</title>
         <!-- Metadonnées pour la SEO -->
         <meta name="description" content="Bienvenue sur My Security Tech, votre source d'informations sur la sécurité informatique. Découvrez des articles, téléchargez des synthèses et bien plus encore.">
         <meta name="keywords" content="sécurité informatique, articles, téléchargements, SSH, cloud, administration">
         <meta name="author" content="My Security Tech">
         <!-- Link Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="css/common.css">
-        <script defer src="js/index.js"></script>
-        <script defer src="js/authVerif.js"></script>
+        <link rel="stylesheet" href="/css/common.css">
+        <script defer src="/js/index.js"></script>
+        <script defer src="/js/authVerif.js"></script>
     </head>
 
 
 
     <!-- Navigation Bar -->
     <nav id="mainNav" class="navbar navbar-expand-lg navbar-dark fixed-top">
-        <a class="navbar-brand" href="#">My Security Tech</a>
+        <a class="navbar-brand" href="https://admin-sys.be">Admin sys</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -31,37 +31,22 @@
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active dropdown">
                     <a class="nav-link navBarLink dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Sites
+                        Speed Links
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="https://mail.my-security.tech">Mail service (coming soon)</a>
-                        <a class="dropdown-item" href="https://cloud.my-security.tech">Cloud service</a>
-                        <a class="dropdown-item" href="https://stats.my-security.tech">Administration</a>
-                        <a class="dropdown-item" href="html/postArticle.html">Poster un article</a>
+                        <a class="dropdown-item" href="https://cloud.admin-sys.be">Notre services clouds</a>
+                        <a class="dropdown-item" href="https://message.admin-sys.be">Communications cryptés</a>
+                        <a class="dropdown-item" href="/content/postArticle.html">Poster un article</a>
                     </div>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link navBarLink" href="https://my-security.tech">Accueil <span class="sr-only">(current)</span></a>
+                    <a class="nav-link navBarLink" href="https://admin-sys.be">Accueil <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link navBarLink" href="#services">Services</a>
+                    <a class="nav-link navBarLink" href="/content/services.html">Services</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link navBarLink" href="#contact">Contact</a>
-                </li>
-            </ul>
-            <!-- User Profile Dropdown -->
-            <ul class="navbar-nav">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Username
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                        <a class="dropdown-item" href="#">Profile</a>
-                        <a class="dropdown-item" href="#">Settings</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Logout</a>
-                    </div>
+                    <a class="nav-link navBarLink" href="/content/contact.html">Contact</a>
                 </li>
             </ul>
         </div>
@@ -91,24 +76,24 @@
 
         <!-- Main Content Sections -->
         <div id="content" class="col-lg-9">
-            <div id="finder">
-                <h1 class="sectionTitle">
-                    Articles
-                </h1>
-                <div id="finderBar" class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Chercher un article..." aria-label="Chercher un articles" aria-describedby="button-addon2">
-                    <button id="buttonChercher" class="btn btn-outline-secondary" type="button" id="button-addon2">Chercher</button>
-                </div>
-            </div>
+              <div id="finder">
+                 <h1 class="sectionTitle">
+                     Articles
+                 </h1>
+                  <!--<div id="finderBar" class="input-group mb-3">
+                      <input type="text" class="form-control" placeholder="Chercher un article..." aria-label="Chercher un articles" aria-describedby="button-addon2">
+                      <button id="buttonChercher" class="btn btn-outline-secondary" type="button" id="button-addon2">Chercher</button>
+                  </div>-->
+              </div>
 
-            <div id="article">
+             <div id="article">
 
-            </div>
-
-
+             </div>
 
 
-            <!-- Section with Downloadable Files -->
+
+
+             <!-- Section with Downloadable Files -->
             <section id="downloads" class="mt-5">
                 <h2>Téléchargements (Coming soon)</h2>
                 <div class="accordion" id="accordionDownloads">
@@ -177,7 +162,9 @@
 
 
     <footer class="footer navbar-dark text-light text-center py-3 ">
-        <p>&copy; 2024 My Security Tech. Tous droits réservés.</p>
+        <p>&copy; 2024 Admin sys BE. Tous droits réservés.</p>
+        <p>Signaler un problème : admin@admin-sys.be. </p>
+        <p>Contacter le propriétaire : mathis.dupriez@admin-sys.be.</p>
     </footer>
 
     <!-- Template -->
@@ -190,9 +177,6 @@
                 <div id="articleTitleLike">
                     <div id="articleTitleDiv">
                         <h5 id="articleTitle" class="card-title">Card title</h5>
-                    </div>
-                    <div id="articleLikeDiv">
-                        <p id="articleLike" class="card-title">Like</p>
                     </div>
                 </div>
                 <date id="articleDate">Date</date>

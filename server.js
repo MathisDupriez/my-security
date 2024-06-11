@@ -73,7 +73,7 @@ app.get('/articles', async (req, res) => {
 
 // Route pour la page d'affichage d'un article en précisant l'url
 app.get('/articles/:articleId', async (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'html', 'Article.html'));
+    res.sendFile(path.join(__dirname, 'public', 'html', 'Article.content'));
 });
 
 // Route pour obtenir les données d'un article spécifique
@@ -86,40 +86,6 @@ app.get('/articles/:articleId/data', async (req, res) => {
             res.status(404).json({ message: 'Article non trouvé.' });
         }
     });
-});
-
-app.post('/like', async (req, res) => {
-    const { id, userId } = req.body;
-    const article = await databaseManager.getByIdFromTable('Articles', id);
-    if (article) {
-        await databaseManager.incrementColumnById('Articles', id, 'Likes');
-        await databaseManager
-        res.json({ message: 'Like ajouté avec succès.', success: true });
-    }
-});
-
-app.post('/newUser', async (req, res) => {
-    const { name, email, password } = req.body;
-    //hash password
-    const hashedPassword = await hashPassword(password);
-
-    await databaseManager.insertIntoTable('Users', {
-        name,
-        email,
-        hashedPassword
-    });
-    res.json({ message: 'Utilisateur ajouté avec succès.', success: true });
-});
-
-app.post('/login', async (req, res) => {
-    const { email, password } = req.body;
-    const hashedPassword = await hashPassword(password);
-    const user = await databaseManager.getByColumn('Users', 'email', email);
-    if (user && user.password === hashedPassword) {
-        res.json({ message: 'Connexion réussie.', success: true });
-    } else {
-        res.json({ message: 'Email ou mot de passe incorrect.', success: false });
-    }
 });
 
 
