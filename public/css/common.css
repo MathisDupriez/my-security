@@ -230,3 +230,7 @@ p {
         width: 80vw;
     }
 }
+
+hr {
+    border-top: 1px solid #555;
+}
