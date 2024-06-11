@@ -1,10 +1,531 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
+
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Mathis Dupriez - Services</title>
+    <!-- Metadonnées pour la SEO -->
+    <meta name="description" content="Page des services utilisés et configurés par Mathis Dupriez. Découvrez mes choix et motivations.">
+    <meta name="keywords" content="Mathis Dupriez, services, informatique, administration système">
+    <meta name="author" content="Mathis Dupriez">
+    <!-- Link Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/common.css">
+    <script defer src="/js/index.js"></script>
+    <script defer src="/js/authVerif.js"></script>
 </head>
-<body>
 
+<body>
+<!-- Navigation Bar -->
+<!-- Navigation Bar -->
+<nav id="mainNav" class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <a class="navbar-brand" href="https://admin-sys.be">Admin sys</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- Main Navbar -->
+    <div class="collapse navbar-collapse" id="navbar">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active dropdown">
+                <a class="nav-link navBarLink dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Speed Links
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="https://cloud.admin-sys.be">Notre services clouds</a>
+                    <a class="dropdown-item" href="https://message.admin-sys.be">Communications cryptés</a>
+                    <a class="dropdown-item" href="/content/postArticle.html">Poster un article</a>
+                </div>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link navBarLink" href="https://admin-sys.be">Accueil <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link navBarLink" href="/content/services.html">Services</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link navBarLink" href="/content/contact.html">Contact</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div id="article">
+
+    <!-- Main content -->
+    <div id="content" class="container mt-5">
+        <h2>Mes Services</h2>
+
+        <!-- Service 1 : SSH -->
+        <div class="service my-5">
+            <hr>
+            <h3>Service : SSH</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="/images/ssh.jpg" class="img-fluid" alt="Image du service SSH">
+                </div>
+                <div class="col-md-8">
+                    <p class="mt-3"><strong>Description :</strong> SSH (Secure Shell) est un protocole de réseau cryptographique pour l'exploitation de services réseau de manière sécurisée à distance.</p>
+                    <p><strong>Utilisation personnelle :</strong> J'utilise SSH pour accéder à distance à mes serveurs et gérer les configurations, me permettant de travailler efficacement et en toute sécurité, où que je sois.</p>
+                    <p><strong>Sécurisation :</strong></p>
+                    <ul>
+                        <li>Changement du port par défaut pour éviter les attaques basiques.</li>
+                        <li>Interdiction de l'accès root pour minimiser les risques de compromission.</li>
+                        <li>Connexion par mot de passe désactivée, favorisant l'utilisation de paires de clés plus sécurisées.</li>
+                        <li>Utilisation d'un utilisateur sudo à la place de root pour les opérations nécessitant des privilèges élevés.</li>
+                        <li>Configuration de la connexion uniquement pour des utilisateurs sans droits sensibles.</li>
+                        <li>Gestion des clés et des mots de passe à travers un fichier KDBX, synchronisé via Nextcloud pour un accès sécurisé en cloud.</li>
+                    </ul>
+                    <p><strong>Motivations :</strong> SSH a été choisi pour sa capacité à fournir une connexion sécurisée et fiable, indispensable pour l'administration distante de mes serveurs.</p>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+        <!-- Service 2 : SFTP -->
+        <div class="service my-5">
+            <h3>Service : SFTP</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="/images/sftp.jpg" class="img-fluid" alt="Image du service SFTP">
+                </div>
+                <div class="col-md-8">
+                    <p class="mt-3"><strong>Description :</strong> SFTP (SSH File Transfer Protocol) est un protocole pour le transfert de fichiers en toute sécurité sur un réseau.</p>
+                    <p><strong>Utilisation personnelle :</strong> J'utilise SFTP pour transférer des fichiers entre différents systèmes de manière sécurisée. Initialement configuré pour une politique de sauvegarde rapide de petits volumes de données avec des scripts et des tâches cron, cette politique a été revue pour gérer de plus grands volumes.</p>
+                    <p><strong>Motivations :</strong> SFTP a été choisi pour sa compatibilité avec SSH et sa capacité à offrir une sécurité renforcée par rapport à d'autres protocoles comme FTPS ou VSFTPD.</p>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+        <!-- Service 3 : UFW -->
+        <div class="service my-5">
+            <h3>Service : UFW</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="/images/ufw.jpg" class="img-fluid" alt="Image du service UFW">
+                </div>
+                <div class="col-md-8">
+                    <p class="mt-3"><strong>Description :</strong> UFW (Uncomplicated Firewall) est un pare-feu conçu pour simplifier la gestion des règles de pare-feu sur les systèmes Linux.</p>
+                    <p><strong>Utilisation personnelle :</strong> J'utilise UFW pour gérer les règles de pare-feu sur mes serveurs, permettant ainsi de sécuriser efficacement les connexions réseau. Il agit également comme un IDS (Système de Détection d'Intrusion) en coopération avec Fail2ban pour établir des règles strictes de bannissement.</p>
+                    <p><strong>Motivations :</strong> UFW a été choisi pour sa simplicité d'utilisation et son efficacité à maintenir des règles de sécurité robustes.</p>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+        <!-- Service 4 : Fail2ban -->
+        <div class="service my-5">
+            <h3>Service : Fail2ban</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="/images/fail2ban.jpg" class="img-fluid" alt="Image du service Fail2ban">
+                </div>
+                <div class="col-md-8">
+                    <p class="mt-3"><strong>Description :</strong> Fail2ban est un IPS (Système de Prévention des Intrusions) qui protège les serveurs en bloquant les adresses IP suspectes.</p>
+                    <p><strong>Utilisation personnelle :</strong> Fail2ban est configuré pour fonctionner avec Nginx et UFW, protégeant mes serveurs des tentatives d'intrusion en bloquant les IP malveillantes. Il joue un rôle crucial en appliquant des règles d'accès strictes et en agissant comme un deuxième rempart de sécurité après Cloudflare.</p>
+                    <p><strong>Motivations :</strong> Fail2ban a été choisi pour son efficacité à réduire les risques de sécurité et sa facilité de configuration modulaire, permettant une protection personnalisée et robuste.</p>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+        <!-- Service 5 : DNS Cloudflare -->
+        <div class="service my-5">
+            <h3>Service : DNS Cloudflare</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="/images/cloudflare.jpg" class="img-fluid" alt="Image du service DNS Cloudflare">
+                </div>
+                <div class="col-md-8">
+                    <p class="mt-3"><strong>Description :</strong> Cloudflare DNS est un service de résolution DNS rapide et sécurisé.</p>
+                    <p><strong>Utilisation personnelle :</strong> J'utilise Cloudflare DNS pour gérer les enregistrements DNS de mes domaines, assurant une résolution rapide et sécurisée. J'utilise également DNSSEC pour ajouter une couche de sécurité supplémentaire.</p>
+                    <p><strong>Motivations :</strong> Cloudflare DNS a été choisi pour sa rapidité, sa sécurité, et ses fonctionnalités avancées comme le WAF (Web Application Firewall) et le proxying des requêtes, permettant de maintenir des règles de sécurité strictes.</p>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+        <!-- Service 6 : BIND9 -->
+        <div class="service my-5">
+            <h3>Service : BIND9</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="/images/bind9.jpg" class="img-fluid" alt="Image du service BIND9">
+                </div>
+                <div class="col-md-8">
+                    <p class="mt-3"><strong>Description :</strong> BIND9 (Berkeley Internet Name Domain) est le serveur DNS le plus utilisé sur Internet.</p>
+                    <p><strong>Utilisation personnelle :</strong> J'utilise BIND9 principalement pour des tests et des configurations de sous-domaines, conformément aux règles du cours. Il me permet de simuler et de gérer les zones DNS de manière flexible.</p>
+                    <p><strong>Motivations :</strong> BIND9 a été choisi pour sa robustesse, sa flexibilité et sa simplicité de configuration, répondant parfaitement à mes besoins de gestion des DNS.</p>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+        <!-- Service 7 : Nginx -->
+        <div class="service my-5">
+            <h3>Service : Nginx</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="/images/nginx.jpg" class="img-fluid" alt="Image du service Nginx">
+                </div>
+                <div class="col-md-8">
+                    <p class="mt-3"><strong>Description :</strong> Nginx est un serveur web open-source connu pour ses hautes performances et sa faible consommation de ressources.</p>
+                    <p><strong>Utilisation personnelle :</strong> J'utilise Nginx pour héberger des sites web personnels et professionnels, ainsi que pour les services requis par mes cours. Il est également configuré pour fonctionner avec Fail2ban pour une sécurité renforcée.</p>
+                    <p><strong>Motivations :</strong> Nginx a été choisi pour sa flexibilité, sa performance, et son efficacité dans la gestion des ressources. Sa configuration plus familière et ses nombreuses options d'optimisation et de sécurisation en font un choix idéal pour mes besoins.</p>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+        <!-- Service 8 : WAF Cloudflare -->
+        <div class="service my-5">
+            <h3>Service : WAF Cloudflare</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="/images/waf.jpg" class="img-fluid" alt="Image du service WAF Cloudflare">
+                </div>
+                <div class="col-md-8">
+                    <p class="mt-3"><strong>Description :</strong> Le Web Application Firewall (WAF) de Cloudflare protège les sites web contre diverses menaces telles que les attaques DDoS, les injections SQL et les cross-site scripting (XSS).</p>
+                    <p><strong>Utilisation personnelle :</strong> J'utilise le WAF de Cloudflare pour protéger mes sites web contre les attaques malveillantes, en assurant un contrôle strict des accès et une protection continue.</p>
+                    <p><strong>Motivations :</strong> Le WAF de Cloudflare a été choisi pour son efficacité à bloquer les menaces web et sa facilité de configuration. Contrairement aux WAF locaux tels que ModSecurity ou Nagios, Cloudflare offre une solution plus robuste et constamment mise à jour.</p>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+        <!-- Service 9 : Php-fpm -->
+        <div class="service my-5">
+            <h3>Service : Php-fpm</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="/images/php-fpm.jpg" class="img-fluid" alt="Image du service Php-fpm">
+                </div>
+                <div class="col-md-8">
+                    <p class="mt-3"><strong>Description :</strong> Php-fpm (FastCGI Process Manager) est un interpréteur PHP alternatif pour les sites web à forte charge.</p>
+                    <p><strong>Utilisation personnelle :</strong> J'utilise Php-fpm pour exécuter des scripts PHP sur mon serveur Nginx, améliorant ainsi la performance et la gestion des connexions simultanées.</p>
+                    <p><strong>Motivations :</strong> Php-fpm a été choisi pour ses performances supérieures et sa capacité à gérer de nombreuses connexions simultanées, essentielles pour mes applications web.</p>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+        <!-- Service 10 : InfluxDB -->
+        <div class="service my-5">
+            <h3>Service : InfluxDB</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="/images/influxdb.jpg" class="img-fluid" alt="Image du service InfluxDB">
+                </div>
+                <div class="col-md-8">
+                    <p class="mt-3"><strong>Description :</strong> InfluxDB est une base de données open-source optimisée pour les métriques, événements et séries temporelles.</p>
+                    <p><strong>Utilisation personnelle :</strong> J'utilise InfluxDB pour collecter et surveiller des métriques de performance en temps réel, offrant une vue détaillée et dynamique de mes systèmes et services.</p>
+                    <p><strong>Motivations :</strong> InfluxDB a été choisi pour sa capacité à gérer de grandes quantités de données en temps réel et sa connectivité facile avec Telegraf pour la collecte de métriques.</p>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+        <!-- Service 11 : Telegraf -->
+        <div class="service my-5">
+            <h3>Service : Telegraf</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="/images/telegraf.jpg" class="img-fluid" alt="Image du service Telegraf">
+                </div>
+                <div class="col-md-8">
+                    <p class="mt-3"><strong>Description :</strong> Telegraf est un agent de collecte de données open-source, écrit en Go, pour la collecte, le traitement et l'envoi de métriques à InfluxDB.</p>
+                    <p><strong>Utilisation personnelle :</strong> J'utilise Telegraf pour collecter, traiter et envoyer des métriques à InfluxDB, basé sur des logs choisis, pour un suivi précis et efficace des performances.</p>
+                    <p><strong>Motivations :</strong> Telegraf a été choisi pour sa simplicité de configuration et sa compatibilité native avec InfluxDB. Sa configuration basée sur des patterns Grok est particulièrement appréciée pour sa flexibilité.</p>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+        <!-- Service 12 : Grafana -->
+        <div class="service my-5">
+            <h3>Service : Grafana</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="/images/grafana.jpg" class="img-fluid" alt="Image du service Grafana">
+                </div>
+                <div class="col-md-8">
+                    <p class="mt-3"><strong>Description :</strong> Grafana est une plateforme open-source de visualisation et de surveillance de données.</p>
+                    <p><strong>Utilisation personnelle :</strong> J'utilise Grafana pour visualiser et analyser les métriques collectées, fournissant des dashboards interactifs et informatifs.</p>
+                    <p><strong>Motivations :</strong> Grafana a été choisi pour ses fonctionnalités de visualisation avancées et son intégration facile avec InfluxDB et Prometheus, offrant une surveillance complète et en temps réel.</p>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+        <!-- Service 13 : Prometheus -->
+        <div class="service my-5">
+            <h3>Service : Prometheus</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="/images/prometheus.jpg" class="img-fluid" alt="Image du service Prometheus">
+                </div>
+                <div class="col-md-8">
+                    <p class="mt-3"><strong>Description :</strong> Prometheus est un système de surveillance et de collecte de métriques open-source, particulièrement adapté pour une surveillance dynamique et en temps réel.</p>
+                    <p><strong>Utilisation personnelle :</strong> J'utilise Prometheus pour la collecte et le stockage des métriques de performance, offrant une surveillance approfondie et en temps réel de mes systèmes et services.</p>
+                    <p><strong>Motivations :</strong> Prometheus a été choisi pour sa robustesse et ses capacités de surveillance en temps réel, essentielles pour la gestion de la performance de mes systèmes.</p>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+        <!-- Service 14 : Nginx Prometheus Exporter -->
+        <div class="service my-5">
+            <h3>Service : Nginx Prometheus Exporter</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="/images/nginx-prometheus-exporter.jpg" class="img-fluid" alt="Image du service Nginx Prometheus Exporter">
+                </div>
+                <div class="col-md-8">
+                    <p class="mt-3"><strong>Description :</strong> Nginx Prometheus Exporter est un outil qui collecte et expose les métriques de Nginx pour Prometheus.</p>
+                    <p><strong>Utilisation personnelle :</strong> J'utilise Nginx Prometheus Exporter pour exporter les métriques de Nginx vers Prometheus, permettant une surveillance détaillée et continue des performances de mon serveur web.</p>
+                    <p><strong>Motivations :</strong> Cet outil a été choisi pour sa capacité à intégrer facilement les métriques de performance de Nginx dans mon système de surveillance Prometheus.</p>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+        <!-- Service 15 : Node Exporter -->
+        <div class="service my-5">
+            <h3>Service : Node Exporter</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="/images/node-exporter.jpg" class="img-fluid" alt="Image du service Node Exporter">
+                </div>
+                <div class="col-md-8">
+                    <p class="mt-3"><strong>Description :</strong> Node Exporter est un exportateur de métriques système pour Prometheus.</p>
+                    <p><strong>Utilisation personnelle :</strong> J'utilise Node Exporter pour exporter des métriques système détaillées vers Prometheus, permettant une surveillance complète et en temps réel de la performance des systèmes.</p>
+                    <p><strong>Motivations :</strong> Node Exporter a été choisi pour sa fiabilité et sa capacité à fournir des métriques système précises et détaillées, essentielles pour une gestion efficace des performances.</p>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+        <!-- Service 16 : Fail2ban Exporter -->
+        <div class="service my-5">
+            <h3>Service : Fail2ban Exporter</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="/images/fail2ban-exporter.jpg" class="img-fluid" alt="Image du service Fail2ban Exporter">
+                </div>
+                <div class="col-md-8">
+                    <p class="mt-3"><strong>Description :</strong> Fail2ban Exporter est un outil qui collecte et expose les métriques de Fail2ban pour Prometheus.</p>
+                    <p><strong>Utilisation personnelle :</strong> J'utilise Fail2ban Exporter pour exporter les métriques de sécurité de Fail2ban vers Prometheus, assurant une surveillance continue et détaillée des performances de mes jails.</p>
+                    <p><strong>Motivations :</strong> Cet outil a été choisi pour maintenir une surveillance rigoureuse sur les performances de mes mesures de sécurité, offrant une vue intégrée dans mon système de monitoring Prometheus.</p>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+        <!-- Service 17 : rclone -->
+        <div class="service my-5">
+            <h3>Service : rclone</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="/images/rclone.jpg" class="img-fluid" alt="Image du service rclone">
+                </div>
+                <div class="col-md-8">
+                    <p class="mt-3"><strong>Description :</strong> Rclone est un outil de synchronisation de fichiers pour les services de stockage cloud.</p>
+                    <p><strong>Utilisation personnelle :</strong> J'utilise rclone pour effectuer des sauvegardes de mes données critiques, les synchronisant vers un stockage cloud B2 Backblaze, assurant ainsi une protection fiable et accessible.</p>
+                    <p><strong>Motivations :</strong> Rclone a été choisi pour sa compatibilité avec B2 Backblaze et sa flexibilité dans la gestion des sauvegardes de données entre différents services de stockage cloud.</p>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+        <!-- Service 18 : Node.js -->
+        <div class="service my-5">
+            <h3>Service : Node.js</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="/images/nodejs.jpg" class="img-fluid" alt="Image du service Node.js">
+                </div>
+                <div class="col-md-8">
+                    <p class="mt-3"><strong>Description :</strong> Node.js est un environnement d'exécution JavaScript open-source, basé sur le moteur V8 de Google Chrome.</p>
+                    <p><strong>Utilisation personnelle :</strong> J'utilise Node.js pour développer et héberger des applications web dynamiques et performantes, adaptées à mes besoins personnels et professionnels.</p>
+                    <p><strong>Motivations :</strong> Node.js a été choisi pour sa rapidité, sa performance et son écosystème riche en modules, permettant un développement rapide et efficace.</p>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+        <!-- Service 19 : Gitea -->
+        <div class="service my-5">
+            <h3>Service : Gitea</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="/images/gitea.jpg" class="img-fluid" alt="Image du service Gitea">
+                </div>
+                <div class="col-md-8">
+                    <p class="mt-3"><strong>Description :</strong> Gitea est une plateforme légère de gestion de code source et de contrôle de version basée sur Git.</p>
+                    <p><strong>Utilisation personnelle :</strong> Pas encore utilisé, mais prévu pour héberger mes projets de développement et gérer le contrôle de version de manière efficace et intégrée.</p>
+                    <p><strong>Motivations :</strong> Gitea a été choisi pour sa légèreté, sa facilité d'installation et son package tout-en-un, combinant serveur et interface web intuitive.</p>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+        <!-- Service 20 : Nextcloud -->
+        <div class="service my-5">
+            <h3>Service : Nextcloud</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="/images/nextcloud.jpg" class="img-fluid" alt="Image du service Nextcloud">
+                </div>
+                <div class="col-md-8">
+                    <p class="mt-3"><strong>Description :</strong> Nextcloud est une plateforme de cloud computing open-source offrant des services de synchronisation et de partage de fichiers, ainsi que des applications de productivité intégrées.</p>
+                    <p><strong>Utilisation personnelle :</strong> J'utilise Nextcloud pour stocker et synchroniser mes fichiers, gérer mes mots de passe KDBX, et permettre un accès web simple à mes emails configurés sur mon domaine.</p>
+                    <p><strong>Motivations :</strong> Nextcloud a été choisi pour ses fonctionnalités complètes, sa sécurité robuste, et sa capacité à centraliser de nombreux services cloud en un seul endroit, simplifiant ainsi la gestion de mes données.</p>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+        <!-- Service 21 : Kanboard -->
+        <div class="service my-5">
+            <h3>Service : Kanboard</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="/images/kanboard.jpg" class="img-fluid" alt="Image du service Kanboard">
+                </div>
+                <div class="col-md-8">
+                    <p class="mt-3"><strong>Description :</strong> Kanboard est un logiciel open-source de gestion de projet visuel basé sur la méthode Kanban.</p>
+                    <p><strong>Utilisation personnelle :</strong> J'utilise Kanboard pour gérer mes projets personnels et professionnels, organisant efficacement les tâches et les flux de travail.</p>
+                    <p><strong>Motivations :</strong> Kanboard a été choisi pour sa simplicité, son efficacité, et sa capacité à améliorer la gestion des tâches grâce à une visualisation claire et intuitive des projets.</p>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+        <!-- Service 22 : Cockpit -->
+        <div class="service my-5">
+            <h3>Service : Cockpit</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="/images/cockpit.jpg" class="img-fluid" alt="Image du service Cockpit">
+                </div>
+                <div class="col-md-8">
+                    <p class="mt-3"><strong>Description :</strong> Cockpit est une interface de gestion de serveur web permettant de surveiller et de gérer les serveurs de manière intuitive.</p>
+                    <p><strong>Utilisation personnelle :</strong> J'utilise Cockpit pour gérer et surveiller mes serveurs via une interface web intuitive, me permettant de récupérer l'accès à mon VPS en cas d'erreurs, grâce à son intégration avec Google Authenticator pour une sécurité accrue.</p>
+                    <p><strong>Motivations :</strong> Cockpit a été choisi pour sa facilité d'utilisation, sa capacité à gérer les serveurs en temps réel, et sa flexibilité dans la configuration des accès sécurisés, notamment lorsqu'il est proxyé par Cloudflare.</p>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+        <!-- Service 23 : PrivateBin -->
+        <div class="service my-5">
+            <h3>Service : PrivateBin</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="/images/privatebin.jpg" class="img-fluid" alt="Image du service PrivateBin">
+                </div>
+                <div class="col-md-8">
+                    <p class="mt-3"><strong>Description :</strong> PrivateBin est un service de partage de texte chiffré offrant un chiffrement de bout en bout pour garantir la confidentialité des informations partagées.</p>
+                    <p><strong>Utilisation personnelle :</strong> J'utilise PrivateBin pour partager des informations sensibles de manière sécurisée, en profitant de son chiffrement robuste et de ses délais d'expiration des données configurables.</p>
+                    <p><strong>Motivations :</strong> PrivateBin a été choisi pour son chiffrement de bout en bout et sa capacité à protéger la confidentialité des données partagées, garantissant ainsi une sécurité maximale.</p>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+        <!-- Service 24 : Postfix -->
+        <div class="service my-5">
+            <h3>Service : Postfix</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="/images/postfix.jpg" class="img-fluid" alt="Image du service Postfix">
+                </div>
+                <div class="col-md-8">
+                    <p class="mt-3"><strong>Description :</strong> Postfix est un serveur de messagerie SMTP open-source réputé pour sa sécurité et sa fiabilité.</p>
+                    <p><strong>Utilisation personnelle :</strong> J'utilise Postfix pour envoyer des emails depuis mes applications et services, assurant une livraison fiable et sécurisée des messages.</p>
+                    <p><strong>Motivations :</strong> Postfix a été choisi pour sa robustesse, sa fiabilité, et sa compatibilité avec d'autres services de messagerie, offrant une solution complète pour la gestion des emails.</p>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+        <!-- Service 25 : Dovecot -->
+        <div class="service my-5">
+            <h3>Service : Dovecot</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="/images/dovecot.jpg" class="img-fluid" alt="Image du service Dovecot">
+                </div>
+                <div class="col-md-8">
+                    <p class="mt-3"><strong>Description :</strong> Dovecot est un serveur de messagerie IMAP et POP3 open-source, conçu pour offrir une sécurité et une performance optimales.</p>
+                    <p><strong>Utilisation personnelle :</strong> J'utilise Dovecot pour gérer les connexions IMAP et POP3 de mes utilisateurs de messagerie, assurant une gestion fluide et sécurisée des emails.</p>
+                    <p><strong>Motivations :</strong> Dovecot a été choisi pour sa performance, sa sécurité, et sa facilité de configuration avec Postfix, offrant une solution intégrée pour la gestion des emails.</p>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+        <!-- Service 26 : Rspamd -->
+        <div class="service my-5">
+            <h3>Service : Rspamd</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="/images/rspamd.jpg" class="img-fluid" alt="Image du service Rspamd">
+                </div>
+                <div class="col-md-8">
+                    <p class="mt-3"><strong>Description :</strong> Rspamd est un filtre antispam et antivirus open-source pour les serveurs de messagerie, offrant diverses fonctionnalités de filtrage et de protection.</p>
+                    <p><strong>Utilisation personnelle :</strong> J'utilise Rspamd pour filtrer les spams, signer les emails avec DKIM, et vérifier les SPF et DMARC des emails entrants, assurant une protection complète contre les courriels indésirables et malveillants.</p>
+                    <p><strong>Motivations :</strong> Rspamd a été choisi pour son efficacité dans la détection des spams et son intégration facile avec d'autres services de messagerie, offrant une protection robuste et configurable.</p>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+        <!-- Service 27 : OpenLDAP -->
+        <div class="service my-5">
+            <h3>Service : OpenLDAP</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="/images/openldap.jpg" class="img-fluid" alt="Image du service OpenLDAP">
+                </div>
+                <div class="col-md-8">
+                    <p class="mt-3"><strong>Description :</strong> OpenLDAP est un annuaire LDAP open-source utilisé pour la gestion centralisée des utilisateurs et des informations.</p>
+                    <p><strong>Utilisation personnelle :</strong> J'utilise OpenLDAP pour gérer les adresses email des utilisateurs, centralisant ainsi les informations de manière flexible et extensible.</p>
+                    <p><strong>Motivations :</strong> OpenLDAP a été choisi pour sa flexibilité et ses divers points d'accès, permettant une extension simple et efficace des services de gestion des utilisateurs.</p>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+        <!-- Service 28 : phpLDAPadmin -->
+        <div class="service my-5">
+            <h3>Service : phpLDAPadmin</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="/images/phpldapadmin.jpg" class="img-fluid" alt="Image du service phpLDAPadmin">
+                </div>
+                <div class="col-md-8">
+                    <p class="mt-3"><strong>Description :</strong> phpLDAPadmin est une interface web open-source pour la gestion des entrées LDAP, offrant une interface intuitive et facile à utiliser.</p>
+                    <p><strong>Utilisation personnelle :</strong> J'utilise phpLDAPadmin pour gérer les entrées LDAP de manière simple et efficace via une interface web conviviale.</p>
+                    <p><strong>Motivations :</strong> phpLDAPadmin a été choisi pour sa facilité d'utilisation et son interface intuitive, simplifiant la gestion des annuaires LDAP.</p>
+                </div>
+            </div>
+        </div>
+        <hr>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer navbar-dark text-light text-center py-3">
+    <p>&copy; 2024 Admin sys BE. Tous droits réservés.</p>
+    <p>Signaler un problème : <a href="mailto:admin@admin-sys.be" class="text-light">admin@admin-sys.be</a>.</p>
+    <p>Contacter le propriétaire : <a href="mailto:mathis.dupriez@admin-sys.be" class="text-light">mathis.dupriez@admin-sys.be</a>.</p>
+</footer>
+
+<!-- Link Bootstrap JS and jQuery -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
+
 </html>
