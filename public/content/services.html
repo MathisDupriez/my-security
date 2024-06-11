@@ -61,7 +61,7 @@
             <h3>Service : SSH</h3>
             <div class="row">
                 <div class="col-md-4">
-                    <img src="/images/ssh.jpg" class="img-fluid" alt="Image du service SSH">
+                    <img src="/images/ssh.png" class="img-fluid" alt="Image du service SSH">
                 </div>
                 <div class="col-md-8">
                     <p class="mt-3"><strong>Description :</strong> SSH (Secure Shell) est un protocole de réseau cryptographique pour l'exploitation de services réseau de manière sécurisée à distance.</p>
@@ -75,7 +75,6 @@
                         <li>Configuration de la connexion uniquement pour des utilisateurs sans droits sensibles.</li>
                         <li>Gestion des clés et des mots de passe à travers un fichier KDBX, synchronisé via Nextcloud pour un accès sécurisé en cloud.</li>
                     </ul>
-                    <p><strong>Motivations :</strong> SSH a été choisi pour sa capacité à fournir une connexion sécurisée et fiable, indispensable pour l'administration distante de mes serveurs.</p>
                 </div>
             </div>
         </div>
@@ -86,7 +85,7 @@
             <h3>Service : SFTP</h3>
             <div class="row">
                 <div class="col-md-4">
-                    <img src="/images/sftp.jpg" class="img-fluid" alt="Image du service SFTP">
+                    <img src="/images/sftp.png" class="img-fluid" alt="Image du service SFTP">
                 </div>
                 <div class="col-md-8">
                     <p class="mt-3"><strong>Description :</strong> SFTP (SSH File Transfer Protocol) est un protocole pour le transfert de fichiers en toute sécurité sur un réseau.</p>
@@ -102,7 +101,7 @@
             <h3>Service : UFW</h3>
             <div class="row">
                 <div class="col-md-4">
-                    <img src="/images/ufw.jpg" class="img-fluid" alt="Image du service UFW">
+                    <img src="/images/ufw.png" class="img-fluid" alt="Image du service UFW">
                 </div>
                 <div class="col-md-8">
                     <p class="mt-3"><strong>Description :</strong> UFW (Uncomplicated Firewall) est un pare-feu conçu pour simplifier la gestion des règles de pare-feu sur les systèmes Linux.</p>
@@ -118,12 +117,11 @@
             <h3>Service : Fail2ban</h3>
             <div class="row">
                 <div class="col-md-4">
-                    <img src="/images/fail2ban.jpg" class="img-fluid" alt="Image du service Fail2ban">
+                    <img src="/images/fail2ban.png" class="img-fluid" alt="Image du service Fail2ban">
                 </div>
                 <div class="col-md-8">
                     <p class="mt-3"><strong>Description :</strong> Fail2ban est un IPS (Système de Prévention des Intrusions) qui protège les serveurs en bloquant les adresses IP suspectes.</p>
                     <p><strong>Utilisation personnelle :</strong> Fail2ban est configuré pour fonctionner avec Nginx et UFW, protégeant mes serveurs des tentatives d'intrusion en bloquant les IP malveillantes. Il joue un rôle crucial en appliquant des règles d'accès strictes et en agissant comme un deuxième rempart de sécurité après Cloudflare.</p>
-                    <p><strong>Motivations :</strong> Fail2ban a été choisi pour son efficacité à réduire les risques de sécurité et sa facilité de configuration modulaire, permettant une protection personnalisée et robuste.</p>
                 </div>
             </div>
         </div>
@@ -134,7 +132,7 @@
             <h3>Service : DNS Cloudflare</h3>
             <div class="row">
                 <div class="col-md-4">
-                    <img src="/images/cloudflare.jpg" class="img-fluid" alt="Image du service DNS Cloudflare">
+                    <img src="/images/cloudflare.png" class="img-fluid" alt="Image du service DNS Cloudflare">
                 </div>
                 <div class="col-md-8">
                     <p class="mt-3"><strong>Description :</strong> Cloudflare DNS est un service de résolution DNS rapide et sécurisé.</p>
@@ -150,12 +148,11 @@
             <h3>Service : BIND9</h3>
             <div class="row">
                 <div class="col-md-4">
-                    <img src="/images/bind9.jpg" class="img-fluid" alt="Image du service BIND9">
+                    <img src="/images/bind.png" class="img-fluid" alt="Image du service BIND9">
                 </div>
                 <div class="col-md-8">
                     <p class="mt-3"><strong>Description :</strong> BIND9 (Berkeley Internet Name Domain) est le serveur DNS le plus utilisé sur Internet.</p>
                     <p><strong>Utilisation personnelle :</strong> J'utilise BIND9 principalement pour des tests et des configurations de sous-domaines, conformément aux règles du cours. Il me permet de simuler et de gérer les zones DNS de manière flexible.</p>
-                    <p><strong>Motivations :</strong> BIND9 a été choisi pour sa robustesse, sa flexibilité et sa simplicité de configuration, répondant parfaitement à mes besoins de gestion des DNS.</p>
                 </div>
             </div>
         </div>
@@ -166,12 +163,12 @@
             <h3>Service : Nginx</h3>
             <div class="row">
                 <div class="col-md-4">
-                    <img src="/images/nginx.jpg" class="img-fluid" alt="Image du service Nginx">
+                    <img src="/images/nginx.png" class="img-fluid" alt="Image du service Nginx">
                 </div>
                 <div class="col-md-8">
                     <p class="mt-3"><strong>Description :</strong> Nginx est un serveur web open-source connu pour ses hautes performances et sa faible consommation de ressources.</p>
                     <p><strong>Utilisation personnelle :</strong> J'utilise Nginx pour héberger des sites web personnels et professionnels, ainsi que pour les services requis par mes cours. Il est également configuré pour fonctionner avec Fail2ban pour une sécurité renforcée.</p>
-                    <p><strong>Motivations :</strong> Nginx a été choisi pour sa flexibilité, sa performance, et son efficacité dans la gestion des ressources. Sa configuration plus familière et ses nombreuses options d'optimisation et de sécurisation en font un choix idéal pour mes besoins.</p>
+                    <p><strong>Motivations :</strong> Nginx a été choisi pour sa flexibilité, sa performance, et son efficacité dans la gestion des ressources. Sa configuration m'était plus familière et ses nombreuses options d'optimisation et de sécurisation en font un choix idéal pour mes besoins.</p>
                 </div>
             </div>
         </div>
@@ -182,7 +179,7 @@
             <h3>Service : WAF Cloudflare</h3>
             <div class="row">
                 <div class="col-md-4">
-                    <img src="/images/waf.jpg" class="img-fluid" alt="Image du service WAF Cloudflare">
+                    <img src="/images/waf.png" class="img-fluid" alt="Image du service WAF Cloudflare">
                 </div>
                 <div class="col-md-8">
                     <p class="mt-3"><strong>Description :</strong> Le Web Application Firewall (WAF) de Cloudflare protège les sites web contre diverses menaces telles que les attaques DDoS, les injections SQL et les cross-site scripting (XSS).</p>
@@ -198,7 +195,7 @@
             <h3>Service : Php-fpm</h3>
             <div class="row">
                 <div class="col-md-4">
-                    <img src="/images/php-fpm.jpg" class="img-fluid" alt="Image du service Php-fpm">
+                    <img src="/images/php-fpm.png" class="img-fluid" alt="Image du service Php-fpm">
                 </div>
                 <div class="col-md-8">
                     <p class="mt-3"><strong>Description :</strong> Php-fpm (FastCGI Process Manager) est un interpréteur PHP alternatif pour les sites web à forte charge.</p>
@@ -214,7 +211,7 @@
             <h3>Service : InfluxDB</h3>
             <div class="row">
                 <div class="col-md-4">
-                    <img src="/images/influxdb.jpg" class="img-fluid" alt="Image du service InfluxDB">
+                    <img src="/images/influxdb.png" class="img-fluid" alt="Image du service InfluxDB">
                 </div>
                 <div class="col-md-8">
                     <p class="mt-3"><strong>Description :</strong> InfluxDB est une base de données open-source optimisée pour les métriques, événements et séries temporelles.</p>
@@ -230,7 +227,7 @@
             <h3>Service : Telegraf</h3>
             <div class="row">
                 <div class="col-md-4">
-                    <img src="/images/telegraf.jpg" class="img-fluid" alt="Image du service Telegraf">
+                    <img src="/images/telegraf.png" class="img-fluid" alt="Image du service Telegraf">
                 </div>
                 <div class="col-md-8">
                     <p class="mt-3"><strong>Description :</strong> Telegraf est un agent de collecte de données open-source, écrit en Go, pour la collecte, le traitement et l'envoi de métriques à InfluxDB.</p>
@@ -246,7 +243,7 @@
             <h3>Service : Grafana</h3>
             <div class="row">
                 <div class="col-md-4">
-                    <img src="/images/grafana.jpg" class="img-fluid" alt="Image du service Grafana">
+                    <img src="/images/grafana.png" class="img-fluid" alt="Image du service Grafana">
                 </div>
                 <div class="col-md-8">
                     <p class="mt-3"><strong>Description :</strong> Grafana est une plateforme open-source de visualisation et de surveillance de données.</p>
@@ -262,7 +259,7 @@
             <h3>Service : Prometheus</h3>
             <div class="row">
                 <div class="col-md-4">
-                    <img src="/images/prometheus.jpg" class="img-fluid" alt="Image du service Prometheus">
+                    <img src="/images/prometheus.png" class="img-fluid" alt="Image du service Prometheus">
                 </div>
                 <div class="col-md-8">
                     <p class="mt-3"><strong>Description :</strong> Prometheus est un système de surveillance et de collecte de métriques open-source, particulièrement adapté pour une surveillance dynamique et en temps réel.</p>
@@ -278,7 +275,7 @@
             <h3>Service : Nginx Prometheus Exporter</h3>
             <div class="row">
                 <div class="col-md-4">
-                    <img src="/images/nginx-prometheus-exporter.jpg" class="img-fluid" alt="Image du service Nginx Prometheus Exporter">
+                    <img src="/images/nginx-prometheus-exporter.png" class="img-fluid" alt="Image du service Nginx Prometheus Exporter">
                 </div>
                 <div class="col-md-8">
                     <p class="mt-3"><strong>Description :</strong> Nginx Prometheus Exporter est un outil qui collecte et expose les métriques de Nginx pour Prometheus.</p>
@@ -294,7 +291,7 @@
             <h3>Service : Node Exporter</h3>
             <div class="row">
                 <div class="col-md-4">
-                    <img src="/images/node-exporter.jpg" class="img-fluid" alt="Image du service Node Exporter">
+                    <img src="/images/node-exporter.png" class="img-fluid" alt="Image du service Node Exporter">
                 </div>
                 <div class="col-md-8">
                     <p class="mt-3"><strong>Description :</strong> Node Exporter est un exportateur de métriques système pour Prometheus.</p>
@@ -310,7 +307,7 @@
             <h3>Service : Fail2ban Exporter</h3>
             <div class="row">
                 <div class="col-md-4">
-                    <img src="/images/fail2ban-exporter.jpg" class="img-fluid" alt="Image du service Fail2ban Exporter">
+                    <img src="/images/fail2ban.png" class="img-fluid" alt="Image du service Fail2ban Exporter">
                 </div>
                 <div class="col-md-8">
                     <p class="mt-3"><strong>Description :</strong> Fail2ban Exporter est un outil qui collecte et expose les métriques de Fail2ban pour Prometheus.</p>
@@ -326,7 +323,7 @@
             <h3>Service : rclone</h3>
             <div class="row">
                 <div class="col-md-4">
-                    <img src="/images/rclone.jpg" class="img-fluid" alt="Image du service rclone">
+                    <img src="/images/rclone.png" class="img-fluid" alt="Image du service rclone">
                 </div>
                 <div class="col-md-8">
                     <p class="mt-3"><strong>Description :</strong> Rclone est un outil de synchronisation de fichiers pour les services de stockage cloud.</p>
@@ -342,7 +339,7 @@
             <h3>Service : Node.js</h3>
             <div class="row">
                 <div class="col-md-4">
-                    <img src="/images/nodejs.jpg" class="img-fluid" alt="Image du service Node.js">
+                    <img src="/images/nodejs.png" class="img-fluid" alt="Image du service Node.js">
                 </div>
                 <div class="col-md-8">
                     <p class="mt-3"><strong>Description :</strong> Node.js est un environnement d'exécution JavaScript open-source, basé sur le moteur V8 de Google Chrome.</p>
@@ -358,7 +355,7 @@
             <h3>Service : Gitea</h3>
             <div class="row">
                 <div class="col-md-4">
-                    <img src="/images/gitea.jpg" class="img-fluid" alt="Image du service Gitea">
+                    <img src="/images/gitea.png" class="img-fluid" alt="Image du service Gitea">
                 </div>
                 <div class="col-md-8">
                     <p class="mt-3"><strong>Description :</strong> Gitea est une plateforme légère de gestion de code source et de contrôle de version basée sur Git.</p>
@@ -374,7 +371,7 @@
             <h3>Service : Nextcloud</h3>
             <div class="row">
                 <div class="col-md-4">
-                    <img src="/images/nextcloud.jpg" class="img-fluid" alt="Image du service Nextcloud">
+                    <img src="/images/nextcloud.png" class="img-fluid" alt="Image du service Nextcloud">
                 </div>
                 <div class="col-md-8">
                     <p class="mt-3"><strong>Description :</strong> Nextcloud est une plateforme de cloud computing open-source offrant des services de synchronisation et de partage de fichiers, ainsi que des applications de productivité intégrées.</p>
@@ -390,7 +387,7 @@
             <h3>Service : Kanboard</h3>
             <div class="row">
                 <div class="col-md-4">
-                    <img src="/images/kanboard.jpg" class="img-fluid" alt="Image du service Kanboard">
+                    <img src="/images/kanboard.png" class="img-fluid" alt="Image du service Kanboard">
                 </div>
                 <div class="col-md-8">
                     <p class="mt-3"><strong>Description :</strong> Kanboard est un logiciel open-source de gestion de projet visuel basé sur la méthode Kanban.</p>
@@ -406,7 +403,7 @@
             <h3>Service : Cockpit</h3>
             <div class="row">
                 <div class="col-md-4">
-                    <img src="/images/cockpit.jpg" class="img-fluid" alt="Image du service Cockpit">
+                    <img src="/images/cockpit.png" class="img-fluid" alt="Image du service Cockpit">
                 </div>
                 <div class="col-md-8">
                     <p class="mt-3"><strong>Description :</strong> Cockpit est une interface de gestion de serveur web permettant de surveiller et de gérer les serveurs de manière intuitive.</p>
@@ -422,7 +419,7 @@
             <h3>Service : PrivateBin</h3>
             <div class="row">
                 <div class="col-md-4">
-                    <img src="/images/privatebin.jpg" class="img-fluid" alt="Image du service PrivateBin">
+                    <img src="/images/privatebin.png" class="img-fluid" alt="Image du service PrivateBin">
                 </div>
                 <div class="col-md-8">
                     <p class="mt-3"><strong>Description :</strong> PrivateBin est un service de partage de texte chiffré offrant un chiffrement de bout en bout pour garantir la confidentialité des informations partagées.</p>
@@ -438,7 +435,7 @@
             <h3>Service : Postfix</h3>
             <div class="row">
                 <div class="col-md-4">
-                    <img src="/images/postfix.jpg" class="img-fluid" alt="Image du service Postfix">
+                    <img src="/images/mail.png" class="img-fluid" alt="Image du service Postfix">
                 </div>
                 <div class="col-md-8">
                     <p class="mt-3"><strong>Description :</strong> Postfix est un serveur de messagerie SMTP open-source réputé pour sa sécurité et sa fiabilité.</p>
@@ -454,7 +451,7 @@
             <h3>Service : Dovecot</h3>
             <div class="row">
                 <div class="col-md-4">
-                    <img src="/images/dovecot.jpg" class="img-fluid" alt="Image du service Dovecot">
+                    <img src="/images/mail.png" class="img-fluid" alt="Image du service Dovecot">
                 </div>
                 <div class="col-md-8">
                     <p class="mt-3"><strong>Description :</strong> Dovecot est un serveur de messagerie IMAP et POP3 open-source, conçu pour offrir une sécurité et une performance optimales.</p>
@@ -470,7 +467,7 @@
             <h3>Service : Rspamd</h3>
             <div class="row">
                 <div class="col-md-4">
-                    <img src="/images/rspamd.jpg" class="img-fluid" alt="Image du service Rspamd">
+                    <img src="/images/rspamd.png" class="img-fluid" alt="Image du service Rspamd">
                 </div>
                 <div class="col-md-8">
                     <p class="mt-3"><strong>Description :</strong> Rspamd est un filtre antispam et antivirus open-source pour les serveurs de messagerie, offrant diverses fonctionnalités de filtrage et de protection.</p>
@@ -486,7 +483,7 @@
             <h3>Service : OpenLDAP</h3>
             <div class="row">
                 <div class="col-md-4">
-                    <img src="/images/openldap.jpg" class="img-fluid" alt="Image du service OpenLDAP">
+                    <img src="/images/ldap.png" class="img-fluid" alt="Image du service OpenLDAP">
                 </div>
                 <div class="col-md-8">
                     <p class="mt-3"><strong>Description :</strong> OpenLDAP est un annuaire LDAP open-source utilisé pour la gestion centralisée des utilisateurs et des informations.</p>
@@ -502,7 +499,7 @@
             <h3>Service : phpLDAPadmin</h3>
             <div class="row">
                 <div class="col-md-4">
-                    <img src="/images/phpldapadmin.jpg" class="img-fluid" alt="Image du service phpLDAPadmin">
+                    <img src="/images/ldap.png" class="img-fluid" alt="Image du service phpLDAPadmin">
                 </div>
                 <div class="col-md-8">
                     <p class="mt-3"><strong>Description :</strong> phpLDAPadmin est une interface web open-source pour la gestion des entrées LDAP, offrant une interface intuitive et facile à utiliser.</p>
