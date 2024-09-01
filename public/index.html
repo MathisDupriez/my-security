@@ -15,7 +15,6 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="/css/common.css">
         <script defer src="/js/index.js"></script>
-        <script defer src="/js/authVerif.js"></script>
     </head>
 
 
@@ -31,11 +30,12 @@
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active dropdown">
                     <a class="nav-link navBarLink dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Speed Links
+                        Nos services
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="https://cloud.admin-sys.be">Notre services clouds</a>
                         <a class="dropdown-item" href="https://message.admin-sys.be">Communications cryptés</a>
+                        <a class="dropdown-item" href="https://wiki.admin-sys.be">Notre wiki</a>
                         <a class="dropdown-item" href="/content/postArticle.html">Poster un article</a>
                     </div>
                 </li>
@@ -78,7 +78,7 @@
         <div id="content" class="col-lg-9">
               <div id="finder">
                  <h1 class="sectionTitle">
-                     Articles
+                     Actualités
                  </h1>
                   <!--<div id="finderBar" class="input-group mb-3">
                       <input type="text" class="form-control" placeholder="Chercher un article..." aria-label="Chercher un articles" aria-describedby="button-addon2">
@@ -94,7 +94,7 @@
 
 
              <!-- Section with Downloadable Files -->
-            <section id="downloads" class="mt-5">
+            <template id="downloads" class="mt-5">
                 <h2>Téléchargements (Coming soon)</h2>
                 <div class="accordion" id="accordionDownloads">
                     <div class="card">
@@ -128,7 +128,6 @@
                                 <ul class="list-group">
                                     <li class="list-group-item">
                                         <a href="chemin/vers/synthese2.pdf" class="btn btn-primary" download>Télécharger</a>
-                                        <p>SSH</p>
                                     </li>
                                 </ul>
                             </div>
@@ -153,7 +152,7 @@
                         </div>
                     </div>
                 </div>
-            </section>
+            </template>
         </div>
 
 
@@ -161,10 +160,10 @@
     </body>
 
 
-    <footer class="footer navbar-dark text-light text-center py-3 ">
+    <footer class="footer navbar-dark text-light text-center py-3">
         <p>&copy; 2024 Admin sys BE. Tous droits réservés.</p>
-        <p>Signaler un problème : admin@admin-sys.be. </p>
-        <p>Contacter le propriétaire : mathis.dupriez@admin-sys.be.</p>
+        <p>Signaler un problème : <a href="mailto:admin@admin-sys.be" class="text-light">admin@admin-sys.be</a>.</p>
+        <p>Contacter le propriétaire : <a href="mailto:mathis@admin-sys.be" class="text-light">mathis@admin-sys.be</a>.</p>
     </footer>
 
     <!-- Template -->
