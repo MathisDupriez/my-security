@@ -4,6 +4,8 @@ body {
     background-color: #222;
     color: #fff;
     padding: 0;
+    min-height: calc(100vh - 200px); /* Ajuste la hauteur en fonction de celle du footer */
+    padding-bottom: 200px; /* Prévoir de l'espace pour le footer */
 }
 ::selection {
     background-color: #00ff00; /* Green text selection */
@@ -88,7 +90,7 @@ p {
 }
 
 .card-body {
-    background-color: #333;!important
+    background-color: #333;
     position: relative; /* Position relative pour le positionnement absolu du bouton */
 }
 
@@ -233,4 +235,13 @@ p {
 
 hr {
     border-top: 1px solid #555;
+}
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    color: #ffffff;
+    text-align: center;
+    padding: 1rem;
 }
