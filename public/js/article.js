@@ -19,7 +19,6 @@ async function fetchArticle() {
         document.getElementById('articleContent').innerHTML = marked.parse(markdownContent);
         document.getElementById('description').textContent = article.Description;
         document.getElementById('date').textContent = article.Date;
-        document.getElementById('like').textContent = article.Likes + ' 👍';
         if (article.ImagePath) {
             document.getElementById('image').src = article.ImagePath;
         } else {
