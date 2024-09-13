@@ -4,7 +4,6 @@ body {
     background-color: #222;
     color: #fff;
     padding: 0;
-    min-height: calc(100vh - 200px); /* Ajuste la hauteur en fonction de celle du footer */
 }
 ::selection {
     background-color: #00ff00; /* Green text selection */
@@ -239,8 +238,13 @@ hr {
     position: relative;
     bottom: 0;
     left: 0;
+    margin-top: 0;
     width: 100%;
     color: #ffffff;
     text-align: center;
     padding: 1rem;
 }
+#bodyWarpper {
+    min-height: calc(100vh - 220px); /* Ajuste la hauteur en fonction de celle du footer */
+}
+/* ici il faudrait ajouter une div content rules qui prend tout les taille du body pour pouvoir exclure le footer */

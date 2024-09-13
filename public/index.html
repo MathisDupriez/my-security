@@ -52,119 +52,115 @@
         </div>
     </nav>
 
-
-
-
     <!-- Main content -->
-
     <body data-spy="scroll" data-target="#navbar" data-offset="50">
-        <!-- Carousel -->
-        <div id="carousel" class="carousel slide" data-ride="carousel" data-interval="4000">
-            <div class="carousel-inner">
+        <div id="bodyWarpper">
+            <!-- Carousel -->
+            <div id="carousel" class="carousel slide" data-ride="carousel" data-interval="4000">
+                <div class="carousel-inner">
 
-                <!-- Add more carousel items as needed -->
-            </div>
-            <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev"> <!-- Flèche gauche -->
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carousel" role="button" data-slide="next"> <!-- Flèche droite -->
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
-
-        <!-- Main Content Sections -->
-        <div id="content" class="col-lg-9">
-              <div id="finder">
-                 <h1 class="sectionTitle">
-                     Actualités
-                 </h1>
-                  <!--<div id="finderBar" class="input-group mb-3">
-                      <input type="text" class="form-control" placeholder="Chercher un article..." aria-label="Chercher un articles" aria-describedby="button-addon2">
-                      <button id="buttonChercher" class="btn btn-outline-secondary" type="button" id="button-addon2">Chercher</button>
-                  </div>-->
-              </div>
-
-             <div id="article">
-
-                 </div>
-
-
-
-
-             <!-- Section with Downloadable Files -->
-            <template id="downloads" class="mt-5">
-                <h2>Téléchargements (Coming soon)</h2>
-                <div class="accordion" id="accordionDownloads">
-                    <div class="card">
-                        <div class="card-header" id="headingOne">
-                            <h5 class="mb-0">
-                                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    Synthèse 1
-                                </button>
-                            </h5>
-                        </div>
-                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionDownloads">
-                            <div class="card-body">
-                                <ul class="list-group">
-                                    <li class="list-group-item">
-                                        <a href="chemin/vers/synthese1.pdf" class="btn btn-primary" download>Télécharger</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header" id="headingTwo">
-                            <h5 class="mb-0">
-                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    Synthèse 2
-                                </button>
-                            </h5>
-                        </div>
-                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionDownloads">
-                            <div class="card-body">
-                                <ul class="list-group">
-                                    <li class="list-group-item">
-                                        <a href="chemin/vers/synthese2.pdf" class="btn btn-primary" download>Télécharger</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header" id="headingThree">
-                            <h5 class="mb-0">
-                                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    Synthèse 3
-                                </button>
-                            </h5>
-                        </div>
-                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionDownloads">
-                            <div class="card-body">
-                                <ul class="list-group">
-                                    <li class="list-group-item">
-                                        <a href="chemin/vers/synthese3.pdf" class="btn btn-primary" download>Télécharger</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- Add more carousel items as needed -->
                 </div>
-            </template>
+                <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev"> <!-- Flèche gauche -->
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carousel" role="button" data-slide="next"> <!-- Flèche droite -->
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+
+            <!-- Main Content Sections -->
+            <div id="content" class="col-lg-9">
+                <div id="finder">
+                    <h1 class="sectionTitle">
+                        Actualités
+                    </h1>
+                    <!--<div id="finderBar" class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Chercher un article..." aria-label="Chercher un articles" aria-describedby="button-addon2">
+                        <button id="buttonChercher" class="btn btn-outline-secondary" type="button" id="button-addon2">Chercher</button>
+                    </div>-->
+                </div>
+
+                <div id="article">
+
+                    </div>
+
+
+
+
+                <!-- Section with Downloadable Files -->
+                <template id="downloads" class="mt-5">
+                    <h2>Téléchargements (Coming soon)</h2>
+                    <div class="accordion" id="accordionDownloads">
+                        <div class="card">
+                            <div class="card-header" id="headingOne">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        Synthèse 1
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionDownloads">
+                                <div class="card-body">
+                                    <ul class="list-group">
+                                        <li class="list-group-item">
+                                            <a href="chemin/vers/synthese1.pdf" class="btn btn-primary" download>Télécharger</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingTwo">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        Synthèse 2
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionDownloads">
+                                <div class="card-body">
+                                    <ul class="list-group">
+                                        <li class="list-group-item">
+                                            <a href="chemin/vers/synthese2.pdf" class="btn btn-primary" download>Télécharger</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="headingThree">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        Synthèse 3
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionDownloads">
+                                <div class="card-body">
+                                    <ul class="list-group">
+                                        <li class="list-group-item">
+                                            <a href="chemin/vers/synthese3.pdf" class="btn btn-primary" download>Télécharger</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
         </div>
-
-
-
-    </body>
-
-
-    <footer class="footer navbar-dark text-light text-center py-3">
+        <footer class="footer navbar-dark text-light text-center py-3">
         <p>&copy; 2024 Admin sys BE. Tous droits réservés.</p>
         <p>Signaler un problème : <a href="mailto:admin@admin-sys.be" class="text-light">admin@admin-sys.be</a>.</p>
         <p>Contacter le propriétaire : <a href="mailto:mathis@admin-sys.be" class="text-light">mathis@admin-sys.be</a>.</p>
-    </footer>
+        </footer>
+    </body>
+
+
+    
 
     <!-- Template -->
 
