@@ -245,6 +245,6 @@ hr {
     padding: 1rem;
 }
 #bodyWarpper {
-    min-height: calc(100vh - 220px); /* Ajuste la hauteur en fonction de celle du footer */
+    min-height: calc(100vh - 210px); /* Ajuste la hauteur en fonction de celle du footer */
 }
 /* ici il faudrait ajouter une div content rules qui prend tout les taille du body pour pouvoir exclure le footer */
