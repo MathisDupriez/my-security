@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page d'accueil</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div id="mainTitle">Admin-sys.be</div>
+    <div id="internetSearchContainer">
+        <form id="internetSearchForm">
+            <select id="searchEngineSelect">
+                <option value="https://www.google.com/search">Google</option>
+                <option value="https://www.bing.com/search">Bing</option>
+                <option value="https://search.yahoo.com/search">Yahoo</option>
+                <option value="https://www.duckduckgo.com/search">DuckDuckGo</option>
+                <option value="https://www.qwant.com/search">Qwant</option>
+                <option value="https://www.startpage.com/sp/search">Startpage</option>
+                <option value="https://www.ecosia.org/search">Ecosia</option>
+                <option value="https://www.wolframalpha.com/input?i=">WolframAlpha</option>
+                <!-- Ajoutez d'autres moteurs de recherche ici -->
+            </select>
+            <input type="text" name="q" id="internetSearchBar" placeholder="Recherche sur Internet...">
+            <button type="submit">Rechercher</button>
+        </form>
+    </div>
+
+    <div id="cat">
+        <div id="searchContainer">
+            <input type="text" id="searchBar" placeholder="Rechercher dans les catégories...">
+        </div>
+
+        <div class="content">
+            <!-- Le contenu des catégories sera généré dynamiquement ici -->
+        </div> 
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>

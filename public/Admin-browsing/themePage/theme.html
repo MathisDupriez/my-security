@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Changer de Thème avec Placeholder</title>
+    <link rel="stylesheet" href="theme.css">
+</head>
+<body>
+    <h1>Changer de Thème - Placeholder</h1>
+
+    <!-- Sélecteur de thème -->
+    <div id="themeSelectorContainer">
+        <label for="themeSelector">Sélectionnez un thème :</label>
+        <select id="themeSelector">
+            <option value="light">Clair</option>
+            <option value="dark">Sombre</option>
+            <option value="custom">Personnalisé</option>
+        </select>
+    </div>
+    
+    <!-- Formulaire de personnalisation, caché par défaut -->
+    <div id="customThemeForm" style="display: none;">
+        <h3>Personnalisez votre thème :</h3>
+        <form id="customThemeForm">
+            <h3>Customize Your Theme</h3>
+            <label for="backgroundColor">Background Color:</label>
+            <input type="color" id="backgroundColor" value="#e9ecef">
+        
+            <label for="inputBackgroundColor">Input Background Color:</label>
+            <input type="color" id="inputBackgroundColor" value="#ffffff">
+        
+            <label for="buttonBackgroundColor">Button Background Color:</label>
+            <input type="color" id="buttonBackgroundColor" value="#007bff">
+        
+            <label for="buttonHoverBackgroundColor">Button Hover Background Color:</label>
+            <input type="color" id="buttonHoverBackgroundColor" value="#0056b3">
+        
+            <label for="categoryBackgroundColor">Category Background Color:</label>
+            <input type="color" id="categoryBackgroundColor" value="#ffffff">
+        
+            <label for="linkBackgroundColor">Link Background Color:</label>
+            <input type="color" id="linkBackgroundColor" value="#ffffff">
+        
+            <label for="mainTextColor">Main Text Color:</label>
+            <input type="color" id="mainTextColor" value="#343a40">
+        
+            <label for="secondaryTextColor">Secondary Text Color:</label>
+            <input type="color" id="secondaryTextColor" value="#495057">
+        
+            <label for="linkTextColor">Link Text Color:</label>
+            <input type="color" id="linkTextColor" value="#495057">
+        
+            <label for="buttonTextColor">Button Text Color:</label>
+            <input type="color" id="buttonTextColor" value="#ffffff">
+        
+            <label for="inputBorderColor">Input Border Color:</label>
+            <input type="color" id="inputBorderColor" value="#ced4da">
+        
+            <label for="categoryBorderColor">Category Border Color:</label>
+            <input type="color" id="categoryBorderColor" value="transparent">
+        
+            <label for="categoryShadowColor">Category Shadow Color:</label>
+            <input type="color" id="categoryShadowColor" value="#000000">
+        
+            <label for="linkShadowColor">Link Shadow Color:</label>
+            <input type="color" id="linkShadowColor" value="#000000">
+        </form>
+        
+    </div>
+
+    <!-- Placeholder de la page Admin-sys.be -->
+    <div id="internetSearchContainer">
+        <form id="internetSearchForm">
+            <select id="searchEngineSelect">
+                <option value="https://www.google.com/search">Google</option>
+                <option value="https://www.bing.com/search">Bing</option>
+                <option value="https://search.yahoo.com/search">Yahoo</option>
+                <option value="https://www.duckduckgo.com/search">DuckDuckGo</option>
+                <option value="https://www.qwant.com/search">Qwant</option>
+                <option value="https://www.startpage.com/sp/search">Startpage</option>
+                <option value="https://www.ecosia.org/search">Ecosia</option>
+                <option value="https://www.wolframalpha.com/input?i=">WolframAlpha</option>
+            </select>
+            <input type="text" name="q" id="internetSearchBar" placeholder="Recherche sur Internet...">
+            <button type="submit">Rechercher</button>
+        </form>
+    </div>
+
+    <div id="cat">
+        <div id="searchContainer">
+            <input type="text" id="searchBar" placeholder="Rechercher dans les catégories...">
+        </div>
+
+        <div class="content">
+            <div class="category">
+                <h2>Catégorie 1</h2>
+                <div class="links-container">
+                    <a href="#" class="link-item">
+                        <div class="link-container">
+                            <img src="https://via.placeholder.com/72" alt="Lien 1">
+                            <span>Lien 1</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="category">
+                <h2>Catégorie 2</h2>
+                <div class="links-container">
+                    <a href="#" class="link-item">
+                        <div class="link-container">
+                            <img src="https://via.placeholder.com/72" alt="Lien 2">
+                            <span>Lien 2</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="theme.js"></script>
+</body>
+</html>
